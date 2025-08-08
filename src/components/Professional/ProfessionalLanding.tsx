@@ -571,20 +571,6 @@ const ProfessionalLanding: React.FC = () => {
                 textAlign: 'center',
                 marginTop: '2rem'
               }}>
-                <div style={{
-                  color: '#00D9FF',
-                  fontSize: '1.2rem',
-                  fontWeight: '600',
-                  marginBottom: '0.5rem'
-                }}>
-                  Neural Network Architecture
-                </div>
-                <div style={{
-                  color: 'rgba(250, 250, 248, 0.7)',
-                  fontSize: '0.9rem'
-                }}>
-                  AI-Powered Hospitality Intelligence
-                </div>
               </div>
             </div>
           </motion.div>
@@ -595,10 +581,10 @@ const ProfessionalLanding: React.FC = () => {
             {/* Customer Experience Card */}
             <motion.div
               style={{
-                background: 'linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(0, 217, 255, 0.05))',
-                border: '1px solid rgba(0, 217, 255, 0.3)',
-                borderRadius: '20px',
-                padding: '2.5rem',
+                background: 'linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(0, 217, 255, 0.03))',
+                border: '1px solid rgba(0, 217, 255, 0.2)',
+                borderRadius: '12px',
+                padding: '1.5rem',
                 backdropFilter: 'blur(10px)'
               }}
               initial={{ opacity: 0, y: 30 }}
@@ -609,56 +595,45 @@ const ProfessionalLanding: React.FC = () => {
               <div style={{ 
                 display: 'flex', 
                 alignItems: 'center', 
-                gap: '1rem', 
-                marginBottom: '1.5rem' 
+                gap: '0.75rem', 
+                marginBottom: '1rem' 
               }}>
-                <div style={{ fontSize: '3rem' }}>👥</div>
-                <h3 style={{ color: '#00D9FF', fontSize: '1.8rem', fontWeight: '600', margin: 0 }}>
+                <div style={{ fontSize: '2rem' }}>👥</div>
+                <h3 style={{ color: '#00D9FF', fontSize: '1.4rem', fontWeight: '600', margin: 0 }}>
                   For Customers
                 </h3>
               </div>
               
-              {[
-                { title: "End-to-End Support", desc: "Continuous AI assistance from check-in to checkout" },
-                { title: "Personalized Experience", desc: "Tailored recommendations and proactive service" }
-              ].map((feature, index) => (
-                <div key={index} style={{ 
-                  marginBottom: '1.5rem', 
-                  padding: '1.25rem', 
-                  background: 'rgba(0, 217, 255, 0.1)', 
-                  borderRadius: '10px' 
+              <div style={{ marginBottom: '1rem' }}>
+                <div style={{ 
+                  color: '#FAFAF8', 
+                  fontSize: '0.95rem', 
+                  lineHeight: '1.5',
+                  marginBottom: '0.5rem'
                 }}>
-                  <h4 style={{ 
-                    color: '#FAFAF8', 
-                    fontSize: '1.1rem', 
-                    fontWeight: '600', 
-                    marginBottom: '0.75rem' 
-                  }}>
-                    {feature.title}
-                  </h4>
-                  <p style={{ 
-                    color: 'rgba(250, 250, 248, 0.9)', 
-                    fontSize: '0.95rem', 
-                    lineHeight: '1.4',
-                    margin: 0
-                  }}>
-                    {feature.desc}
-                  </p>
+                  • End-to-end AI assistance from check-in to checkout
                 </div>
-              ))}
+                <div style={{ 
+                  color: '#FAFAF8', 
+                  fontSize: '0.95rem', 
+                  lineHeight: '1.5'
+                }}>
+                  • Personalized recommendations and proactive service
+                </div>
+              </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '1.5rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: '#FF6B35', fontSize: '1.75rem', fontWeight: '700' }}>98%</div>
-                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.8rem' }}>Satisfaction</div>
+                  <div style={{ color: '#FF6B35', fontSize: '1.25rem', fontWeight: '700' }}>98%</div>
+                  <div style={{ color: 'rgba(250, 250, 248, 0.7)', fontSize: '0.7rem' }}>Satisfaction</div>
                 </div>
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: '#FF6B35', fontSize: '1.75rem', fontWeight: '700' }}>45s</div>
-                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.8rem' }}>Response</div>
+                  <div style={{ color: '#FF6B35', fontSize: '1.25rem', fontWeight: '700' }}>45s</div>
+                  <div style={{ color: 'rgba(250, 250, 248, 0.7)', fontSize: '0.7rem' }}>Response</div>
                 </div>
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: '#FF6B35', fontSize: '1.75rem', fontWeight: '700' }}>24/7</div>
-                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.8rem' }}>Available</div>
+                  <div style={{ color: '#FF6B35', fontSize: '1.25rem', fontWeight: '700' }}>24/7</div>
+                  <div style={{ color: 'rgba(250, 250, 248, 0.7)', fontSize: '0.7rem' }}>Available</div>
                 </div>
               </div>
             </motion.div>
@@ -666,10 +641,10 @@ const ProfessionalLanding: React.FC = () => {
             {/* Provider Dashboard Card */}
             <motion.div
               style={{
-                background: 'linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(255, 107, 53, 0.05))',
-                border: '1px solid rgba(255, 107, 53, 0.3)',
-                borderRadius: '20px',
-                padding: '2.5rem',
+                background: 'linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 107, 53, 0.03))',
+                border: '1px solid rgba(255, 107, 53, 0.2)',
+                borderRadius: '12px',
+                padding: '1.5rem',
                 backdropFilter: 'blur(10px)'
               }}
               initial={{ opacity: 0, y: 30 }}
@@ -680,57 +655,53 @@ const ProfessionalLanding: React.FC = () => {
               <div style={{ 
                 display: 'flex', 
                 alignItems: 'center', 
-                gap: '1rem', 
-                marginBottom: '1.5rem' 
+                gap: '0.75rem', 
+                marginBottom: '1rem' 
               }}>
-                <div style={{ fontSize: '3rem' }}>🏨</div>
-                <h3 style={{ color: '#FF6B35', fontSize: '1.8rem', fontWeight: '600', margin: 0 }}>
+                <div style={{ fontSize: '2rem' }}>🏨</div>
+                <h3 style={{ color: '#FF6B35', fontSize: '1.4rem', fontWeight: '600', margin: 0 }}>
                   For Providers
                 </h3>
               </div>
               
-              {[
-                { title: "Smart Administration", desc: "Automated workflows and intelligent task management" },
-                { title: "Live Analytics", desc: "Real-time insights for data-driven decisions" },
-                { title: "Instant Alerts", desc: "Proactive notifications for critical events" }
-              ].map((feature, index) => (
-                <div key={index} style={{ 
-                  marginBottom: '1.5rem', 
-                  padding: '1.25rem', 
-                  background: 'rgba(255, 107, 53, 0.1)', 
-                  borderRadius: '10px' 
+              <div style={{ marginBottom: '1rem' }}>
+                <div style={{ 
+                  color: '#FAFAF8', 
+                  fontSize: '0.95rem', 
+                  lineHeight: '1.5',
+                  marginBottom: '0.5rem'
                 }}>
-                  <h4 style={{ 
-                    color: '#FAFAF8', 
-                    fontSize: '1.1rem', 
-                    fontWeight: '600', 
-                    marginBottom: '0.75rem' 
-                  }}>
-                    {feature.title}
-                  </h4>
-                  <p style={{ 
-                    color: 'rgba(250, 250, 248, 0.9)', 
-                    fontSize: '0.95rem', 
-                    lineHeight: '1.4',
-                    margin: 0
-                  }}>
-                    {feature.desc}
-                  </p>
+                  • Smart administration with automated workflows
                 </div>
-              ))}
+                <div style={{ 
+                  color: '#FAFAF8', 
+                  fontSize: '0.95rem', 
+                  lineHeight: '1.5',
+                  marginBottom: '0.5rem'
+                }}>
+                  • Real-time analytics for data-driven decisions
+                </div>
+                <div style={{ 
+                  color: '#FAFAF8', 
+                  fontSize: '0.95rem', 
+                  lineHeight: '1.5'
+                }}>
+                  • Instant alerts for critical events
+                </div>
+              </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '1.5rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: '#00D9FF', fontSize: '1.75rem', fontWeight: '700' }}>75%</div>
-                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.8rem' }}>Efficiency</div>
+                  <div style={{ color: '#00D9FF', fontSize: '1.25rem', fontWeight: '700' }}>75%</div>
+                  <div style={{ color: 'rgba(250, 250, 248, 0.7)', fontSize: '0.7rem' }}>Efficiency</div>
                 </div>
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: '#00D9FF', fontSize: '1.75rem', fontWeight: '700' }}>89%</div>
-                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.8rem' }}>Cost Cut</div>
+                  <div style={{ color: '#00D9FF', fontSize: '1.25rem', fontWeight: '700' }}>89%</div>
+                  <div style={{ color: 'rgba(250, 250, 248, 0.7)', fontSize: '0.7rem' }}>Cost Cut</div>
                 </div>
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: '#00D9FF', fontSize: '1.75rem', fontWeight: '700' }}>24/7</div>
-                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.8rem' }}>Monitor</div>
+                  <div style={{ color: '#00D9FF', fontSize: '1.25rem', fontWeight: '700' }}>24/7</div>
+                  <div style={{ color: 'rgba(250, 250, 248, 0.7)', fontSize: '0.7rem' }}>Monitor</div>
                 </div>
               </div>
             </motion.div>
