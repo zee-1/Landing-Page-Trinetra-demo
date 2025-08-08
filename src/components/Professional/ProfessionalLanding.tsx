@@ -912,6 +912,382 @@ const ProfessionalLanding: React.FC = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer style={{
+        background: 'linear-gradient(180deg, #0f0027 0%, #1a0033 50%, #0f0027 100%)',
+        padding: '4rem 2rem 2rem',
+        borderTop: '1px solid rgba(0, 217, 255, 0.2)'
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          {/* Footer Content */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '3rem',
+            marginBottom: '3rem'
+          }}>
+            {/* Company Info */}
+            <div>
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '1rem', 
+                marginBottom: '1.5rem' 
+              }}>
+                <div style={{ fontSize: '2rem', color: '#00D9FF' }}>ॠ</div>
+                <h3 style={{ 
+                  color: '#FAFAF8', 
+                  fontSize: '1.5rem', 
+                  fontWeight: '600', 
+                  margin: 0 
+                }}>
+                  Trinetra AI Solutions
+                </h3>
+              </div>
+              <p style={{
+                color: 'rgba(250, 250, 248, 0.8)',
+                fontSize: '1rem',
+                lineHeight: '1.6',
+                marginBottom: '1.5rem'
+              }}>
+                Bridging ancient wisdom with quantum computing to transform businesses through AI-powered solutions.
+              </p>
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                {['🔗', '📧', '📱'].map((icon, index) => (
+                  <div key={index} style={{
+                    width: '40px',
+                    height: '40px',
+                    background: 'linear-gradient(45deg, #FF6B35, #00D9FF)',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.2rem',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease'
+                  }}>
+                    {icon}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Solutions */}
+            <div>
+              <h4 style={{
+                color: '#FF6B35',
+                fontSize: '1.2rem',
+                fontWeight: '600',
+                marginBottom: '1.5rem'
+              }}>
+                Solutions
+              </h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                {['Hotel Management AI', 'Healthcare Solutions', 'Financial Analytics', 'Educational AI'].map((solution, index) => (
+                  <li key={index} style={{
+                    color: 'rgba(250, 250, 248, 0.8)',
+                    fontSize: '0.95rem',
+                    marginBottom: '0.75rem',
+                    cursor: 'pointer',
+                    transition: 'color 0.3s ease'
+                  }}>
+                    • {solution}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h4 style={{
+                color: '#FF6B35',
+                fontSize: '1.2rem',
+                fontWeight: '600',
+                marginBottom: '1.5rem'
+              }}>
+                Contact
+              </h4>
+              <div style={{
+                color: 'rgba(250, 250, 248, 0.8)',
+                fontSize: '0.95rem',
+                lineHeight: '1.8'
+              }}>
+                <div style={{ marginBottom: '0.75rem' }}>
+                  📧 contact@trinetra-ai.com
+                </div>
+                <div style={{ marginBottom: '0.75rem' }}>
+                  🌐 www.trinetra-ai.com
+                </div>
+                <div>
+                  📍 AI Innovation Hub
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer Bottom */}
+          <div style={{
+            borderTop: '1px solid rgba(0, 217, 255, 0.1)',
+            paddingTop: '2rem',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '1rem'
+          }}>
+            <div style={{
+              color: 'rgba(250, 250, 248, 0.7)',
+              fontSize: '0.9rem'
+            }}>
+              © 2024 Trinetra AI Solutions. Where Ancient Wisdom Meets Quantum Computing.
+            </div>
+            <div style={{
+              display: 'flex',
+              gap: '2rem',
+              fontSize: '0.9rem'
+            }}>
+              <span style={{ color: 'rgba(250, 250, 248, 0.7)', cursor: 'pointer' }}>Privacy</span>
+              <span style={{ color: 'rgba(250, 250, 248, 0.7)', cursor: 'pointer' }}>Terms</span>
+              <span style={{ color: 'rgba(250, 250, 248, 0.7)', cursor: 'pointer' }}>Cookies</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    {/* Floating Sanskrit and Mathematical Symbols */}
+    <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 1 }}>
+      {/* Sanskrit Symbols */}
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: '15%',
+          left: '5%',
+          fontSize: '1.5rem',
+          color: 'rgba(0, 217, 255, 0.3)',
+          fontWeight: '300'
+        }}
+        animate={{ 
+          y: [0, -20, 0],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ 
+          duration: 8, 
+          repeat: Infinity, 
+          ease: 'easeInOut' 
+        }}
+      >
+        ॐ
+      </motion.div>
+
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: '25%',
+          right: '8%',
+          fontSize: '1.2rem',
+          color: 'rgba(255, 107, 53, 0.4)',
+          fontWeight: '300'
+        }}
+        animate={{ 
+          y: [0, -15, 0],
+          opacity: [0.4, 0.7, 0.4]
+        }}
+        transition={{ 
+          duration: 6, 
+          repeat: Infinity, 
+          ease: 'easeInOut',
+          delay: 2
+        }}
+      >
+        श्री
+      </motion.div>
+
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: '45%',
+          left: '3%',
+          fontSize: '1.3rem',
+          color: 'rgba(0, 217, 255, 0.3)',
+          fontWeight: '300'
+        }}
+        animate={{ 
+          y: [0, -18, 0],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ 
+          duration: 7, 
+          repeat: Infinity, 
+          ease: 'easeInOut',
+          delay: 4
+        }}
+      >
+        गुरु
+      </motion.div>
+
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: '65%',
+          right: '4%',
+          fontSize: '1.4rem',
+          color: 'rgba(255, 107, 53, 0.3)',
+          fontWeight: '300'
+        }}
+        animate={{ 
+          y: [0, -22, 0],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ 
+          duration: 9, 
+          repeat: Infinity, 
+          ease: 'easeInOut',
+          delay: 1
+        }}
+      >
+        यंत्र
+      </motion.div>
+
+      {/* Mathematical Symbols */}
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: '20%',
+          left: '15%',
+          fontSize: '1.2rem',
+          color: 'rgba(0, 217, 255, 0.4)',
+          fontFamily: 'monospace'
+        }}
+        animate={{ 
+          y: [0, -16, 0],
+          opacity: [0.4, 0.7, 0.4]
+        }}
+        transition={{ 
+          duration: 5, 
+          repeat: Infinity, 
+          ease: 'easeInOut',
+          delay: 3
+        }}
+      >
+        ∞
+      </motion.div>
+
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: '35%',
+          right: '12%',
+          fontSize: '1.1rem',
+          color: 'rgba(255, 107, 53, 0.4)',
+          fontFamily: 'monospace'
+        }}
+        animate={{ 
+          y: [0, -14, 0],
+          opacity: [0.4, 0.7, 0.4]
+        }}
+        transition={{ 
+          duration: 6.5, 
+          repeat: Infinity, 
+          ease: 'easeInOut',
+          delay: 1.5
+        }}
+      >
+        ∑
+      </motion.div>
+
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: '55%',
+          left: '8%',
+          fontSize: '1.3rem',
+          color: 'rgba(0, 217, 255, 0.3)',
+          fontFamily: 'monospace'
+        }}
+        animate={{ 
+          y: [0, -20, 0],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ 
+          duration: 7.5, 
+          repeat: Infinity, 
+          ease: 'easeInOut',
+          delay: 2.5
+        }}
+      >
+        π
+      </motion.div>
+
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: '75%',
+          right: '15%',
+          fontSize: '1.2rem',
+          color: 'rgba(255, 107, 53, 0.4)',
+          fontFamily: 'monospace'
+        }}
+        animate={{ 
+          y: [0, -17, 0],
+          opacity: [0.4, 0.7, 0.4]
+        }}
+        transition={{ 
+          duration: 8.5, 
+          repeat: Infinity, 
+          ease: 'easeInOut',
+          delay: 0.5
+        }}
+      >
+        ∇
+      </motion.div>
+
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: '40%',
+          left: '25%',
+          fontSize: '1.1rem',
+          color: 'rgba(0, 217, 255, 0.3)',
+          fontFamily: 'monospace'
+        }}
+        animate={{ 
+          y: [0, -13, 0],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ 
+          duration: 6, 
+          repeat: Infinity, 
+          ease: 'easeInOut',
+          delay: 4.5
+        }}
+      >
+        Φ
+      </motion.div>
+
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: '60%',
+          right: '25%',
+          fontSize: '1.2rem',
+          color: 'rgba(255, 107, 53, 0.3)',
+          fontFamily: 'monospace'
+        }}
+        animate={{ 
+          y: [0, -19, 0],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ 
+          duration: 7, 
+          repeat: Infinity, 
+          ease: 'easeInOut',
+          delay: 3.5
+        }}
+      >
+        ∫
+      </motion.div>
     </div>
   )
 }
