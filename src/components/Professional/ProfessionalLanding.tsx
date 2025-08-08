@@ -413,41 +413,58 @@ const ProfessionalLanding: React.FC = () => {
           </h2>
         </motion.div>
 
-        <div style={timelineStyles}>
-          {[
-            { period: "3000 BCE", title: "Vedic Mathematics", desc: "Ancient Indian mathematical principles", eq: "√2 = 1 + 1/(2 + 1/(2 + ...))" },
-            { period: "500 BCE", title: "Zero & Infinity", desc: "Revolutionary mathematical concepts", eq: "∞ × 0 = indeterminate" },
-            { period: "1950 CE", title: "Computing Dawn", desc: "First electronic computers emerge", eq: "2ⁿ = exponential growth" },
-            { period: "2023 CE", title: "AI Renaissance", desc: "Modern AI transforms ancient wisdom", eq: "AI + ॠ = Trinetra" }
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              style={timelineItemStyles}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div 
-                style={timelineCardStyles}
-                className="hover-scale"
-              >
-                <div style={{ color: '#FF6B35', fontFamily: 'monospace', fontSize: '0.9rem', marginBottom: '1rem' }}>
-                  {item.period}
-                </div>
-                <h3 style={{ color: '#00D9FF', fontSize: '1.8rem', fontWeight: '600', marginBottom: '1rem' }}>
-                  {item.title}
-                </h3>
-                <p style={{ color: 'rgba(250, 250, 248, 0.9)', fontSize: '1.1rem', marginBottom: '1rem' }}>
-                  {item.desc}
-                </p>
-                <code style={{ color: 'rgba(0, 217, 255, 0.8)', fontSize: '0.9rem', fontFamily: 'monospace' }}>
-                  {item.eq}
-                </code>
+        {/* 3D Mandala Visualization */}
+        <motion.div
+          style={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            marginTop: '4rem',
+            marginBottom: '4rem'
+          }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <div style={{ 
+            position: 'relative',
+            border: '1px solid rgba(255, 107, 53, 0.2)',
+            borderRadius: '12px',
+            padding: '1rem',
+            background: 'rgba(45, 27, 105, 0.3)'
+          }}>
+            <MandalaNeural3D 
+              width={550} 
+              height={450}
+              className="philosophy-mandala-3d"
+            />
+            
+            {/* Label for 3D Mandala */}
+            <div style={{
+              position: 'absolute',
+              bottom: '-3rem',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              textAlign: 'center'
+            }}>
+              <div style={{
+                color: '#FF6B35',
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                marginBottom: '0.5rem'
+              }}>
+                Sacred Geometry Visualization
               </div>
-            </motion.div>
-          ))}
-        </div>
+              <div style={{
+                color: 'rgba(250, 250, 248, 0.7)',
+                fontSize: '0.9rem'
+              }}>
+                Ancient Wisdom Meets Modern Technology
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Founders */}
         <motion.div
@@ -674,10 +691,16 @@ const ProfessionalLanding: React.FC = () => {
           transition={{ duration: 1, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <div style={{ position: 'relative' }}>
+          <div style={{ 
+            position: 'relative',
+            border: '1px solid rgba(0, 217, 255, 0.2)',
+            borderRadius: '12px',
+            padding: '1rem',
+            background: 'rgba(26, 0, 51, 0.3)'
+          }}>
             <BrainNeural3D 
-              width={600} 
-              height={500}
+              width={700} 
+              height={600}
               className="brain-neural-3d"
             />
             

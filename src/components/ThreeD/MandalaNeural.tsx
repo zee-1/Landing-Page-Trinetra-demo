@@ -172,8 +172,31 @@ const MandalaNeural3D: React.FC<MandalaNeural3DProps> = ({
     <div 
       ref={mountRef} 
       className={className}
-      style={{ width, height }}
-    />
+      style={{ 
+        width, 
+        height,
+        background: 'linear-gradient(45deg, rgba(255, 107, 53, 0.1), rgba(0, 217, 255, 0.1))',
+        border: '2px dashed rgba(255, 107, 53, 0.3)',
+        borderRadius: '8px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative'
+      }}
+    >
+      {/* Loading/Fallback indicator */}
+      <div style={{
+        position: 'absolute',
+        color: '#FF6B35',
+        fontSize: '1rem',
+        fontWeight: '600',
+        textAlign: 'center',
+        pointerEvents: 'none',
+        zIndex: 1
+      }}>
+        🕉️ Sacred Geometry Loading...
+      </div>
+    </div>
   )
 }
 

@@ -293,8 +293,31 @@ const BrainNeural3D: React.FC<BrainNeural3DProps> = ({
     <div 
       ref={mountRef} 
       className={className}
-      style={{ width, height }}
-    />
+      style={{ 
+        width, 
+        height, 
+        background: 'linear-gradient(45deg, rgba(0, 217, 255, 0.1), rgba(255, 107, 53, 0.1))',
+        border: '2px dashed rgba(0, 217, 255, 0.3)',
+        borderRadius: '8px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative'
+      }}
+    >
+      {/* Loading/Fallback indicator */}
+      <div style={{
+        position: 'absolute',
+        color: '#00D9FF',
+        fontSize: '1rem',
+        fontWeight: '600',
+        textAlign: 'center',
+        pointerEvents: 'none',
+        zIndex: 1
+      }}>
+        🧠 Neural Network Loading...
+      </div>
+    </div>
   )
 }
 
