@@ -184,18 +184,6 @@ const MandalaNeural3D: React.FC<MandalaNeural3DProps> = ({
         position: 'relative'
       }}
     >
-      {/* Loading/Fallback indicator */}
-      <div style={{
-        position: 'absolute',
-        color: '#FF6B35',
-        fontSize: '1rem',
-        fontWeight: '600',
-        textAlign: 'center',
-        pointerEvents: 'none',
-        zIndex: 1
-      }}>
-        🕉️ Sacred Geometry Loading...
-      </div>
     </div>
   )
 }

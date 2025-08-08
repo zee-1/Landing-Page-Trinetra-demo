@@ -183,12 +183,24 @@ const ProfessionalLanding: React.FC = () => {
             gap: 2rem !important;
           }
           
+          .product-grid-layout {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+          
           .title-responsive {
             font-size: 2.5rem !important;
           }
           
           .subtitle-responsive {
             font-size: 1.3rem !important;
+          }
+        }
+        
+        @media (max-width: 1024px) {
+          .product-grid-layout {
+            grid-template-columns: 1fr !important;
+            gap: 3rem !important;
           }
         }
       `}</style>
@@ -412,60 +424,6 @@ const ProfessionalLanding: React.FC = () => {
             Where Ancient Wisdom Meets <span style={{ color: '#00D9FF' }}>Quantum Computing</span>
           </h2>
         </motion.div>
-
-        {/* 3D Mandala Visualization */}
-        <motion.div
-          style={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center',
-            marginTop: '4rem',
-            marginBottom: '4rem'
-          }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <div style={{ 
-            position: 'relative',
-            border: '1px solid rgba(255, 107, 53, 0.2)',
-            borderRadius: '12px',
-            padding: '1rem',
-            background: 'rgba(45, 27, 105, 0.3)'
-          }}>
-            <MandalaNeural3D 
-              width={550} 
-              height={450}
-              className="philosophy-mandala-3d"
-            />
-            
-            {/* Label for 3D Mandala */}
-            <div style={{
-              position: 'absolute',
-              bottom: '-3rem',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              textAlign: 'center'
-            }}>
-              <div style={{
-                color: '#FF6B35',
-                fontSize: '1.1rem',
-                fontWeight: '600',
-                marginBottom: '0.5rem'
-              }}>
-                Sacred Geometry Visualization
-              </div>
-              <div style={{
-                color: 'rgba(250, 250, 248, 0.7)',
-                fontSize: '0.9rem'
-              }}>
-                Ancient Wisdom Meets Modern Technology
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Founders */}
         <motion.div
           style={{ marginTop: '6rem', textAlign: 'center' }}
@@ -568,167 +526,208 @@ const ProfessionalLanding: React.FC = () => {
           </p>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '3rem', maxWidth: '1200px', margin: '0 auto' }}>
-          {/* Customer Experience */}
+        {/* Left-Right Layout: Neural Network + Cards */}
+        <div 
+          style={{ 
+            display: 'grid', 
+            gridTemplateColumns: '1fr 1fr', 
+            gap: '4rem', 
+            maxWidth: '1400px', 
+            margin: '0 auto',
+            alignItems: 'start'
+          }}
+          className="product-grid-layout"
+        >
+          {/* LEFT: Neural Network Model */}
           <motion.div
             style={{
-              background: 'linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(0, 217, 255, 0.05))',
-              border: '1px solid rgba(0, 217, 255, 0.3)',
-              borderRadius: '24px',
-              padding: '3rem',
-              backdropFilter: 'blur(10px)'
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              position: 'relative'
             }}
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-              <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>👥</div>
-              <h3 style={{ color: '#00D9FF', fontSize: '2.2rem', fontWeight: '600' }}>
-                For Customers
-              </h3>
-            </div>
-            
-            {[
-              { title: "End-to-End Support", desc: "From onboarding to checkout, continuous AI assistance enhancing guest experience" },
-              { title: "Personalized Interactions", desc: "Intelligent responses and proactive support ensuring every guest feels valued" }
-            ].map((feature, index) => (
-              <div key={index} style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(0, 217, 255, 0.1)', borderRadius: '12px' }}>
-                <h4 style={{ color: '#FAFAF8', fontSize: '1.3rem', fontWeight: '600', marginBottom: '1rem' }}>
-                  {feature.title}
-                </h4>
-                <p style={{ color: 'rgba(250, 250, 248, 0.9)', fontSize: '1.1rem', lineHeight: '1.5' }}>
-                  {feature.desc}
-                </p>
-              </div>
-            ))}
-
-            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-around', gap: '1rem' }}>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: '#FF6B35', fontSize: '2rem', fontWeight: '700' }}>98%</div>
-                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.9rem' }}>Satisfaction</div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: '#FF6B35', fontSize: '2rem', fontWeight: '700' }}>45s</div>
-                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.9rem' }}>Response Time</div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: '#FF6B35', fontSize: '2rem', fontWeight: '700' }}>24/7</div>
-                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.9rem' }}>Available</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Provider Dashboard */}
-          <motion.div
-            style={{
-              background: 'linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(255, 107, 53, 0.05))',
-              border: '1px solid rgba(255, 107, 53, 0.3)',
-              borderRadius: '24px',
-              padding: '3rem',
-              backdropFilter: 'blur(10px)'
-            }}
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-              <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🏨</div>
-              <h3 style={{ color: '#FF6B35', fontSize: '2.2rem', fontWeight: '600' }}>
-                For Providers
-              </h3>
-            </div>
-            
-            {[
-              { title: "Streamlined Administration", desc: "Automate routine tasks and optimize workflows, freeing teams for core activities" },
-              { title: "Real-time Analytics", desc: "Deep operational insights with live data analysis for informed decision-making" },
-              { title: "Smart Alerts", desc: "Immediate notifications for critical events ensuring prompt responses" }
-            ].map((feature, index) => (
-              <div key={index} style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(255, 107, 53, 0.1)', borderRadius: '12px' }}>
-                <h4 style={{ color: '#FAFAF8', fontSize: '1.3rem', fontWeight: '600', marginBottom: '1rem' }}>
-                  {feature.title}
-                </h4>
-                <p style={{ color: 'rgba(250, 250, 248, 0.9)', fontSize: '1.1rem', lineHeight: '1.5' }}>
-                  {feature.desc}
-                </p>
-              </div>
-            ))}
-
-            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-around', gap: '1rem' }}>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: '#00D9FF', fontSize: '2rem', fontWeight: '700' }}>67%</div>
-                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.9rem' }}>Efficiency</div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: '#00D9FF', fontSize: '2rem', fontWeight: '700' }}>89%</div>
-                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.9rem' }}>Cost Reduction</div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: '#00D9FF', fontSize: '2rem', fontWeight: '700' }}>24/7</div>
-                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.9rem' }}>Monitoring</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* AI Brain Visualization */}
-        <motion.div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginTop: '4rem',
-            position: 'relative'
-          }}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <div style={{ 
-            position: 'relative',
-            border: '1px solid rgba(0, 217, 255, 0.2)',
-            borderRadius: '12px',
-            padding: '1rem',
-            background: 'rgba(26, 0, 51, 0.3)'
-          }}>
-            <BrainNeural3D 
-              width={700} 
-              height={600}
-              className="brain-neural-3d"
-            />
-            
-            {/* Professional Label */}
-            <div style={{
-              position: 'absolute',
-              bottom: '-2rem',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              textAlign: 'center'
+            <div style={{ 
+              position: 'relative',
+              border: '1px solid rgba(0, 217, 255, 0.2)',
+              borderRadius: '16px',
+              padding: '2rem',
+              background: 'rgba(26, 0, 51, 0.3)',
+              backdropFilter: 'blur(15px)'
             }}>
+              <BrainNeural3D 
+                width={600} 
+                height={550}
+                className="brain-neural-3d"
+              />
+              
+              {/* Neural Network Label */}
               <div style={{
-                color: '#00D9FF',
-                fontSize: '1.1rem',
-                fontWeight: '600',
-                marginBottom: '0.5rem'
+                position: 'absolute',
+                bottom: '-3rem',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                textAlign: 'center'
               }}>
-                Neural Network Architecture
-              </div>
-              <div style={{
-                color: 'rgba(250, 250, 248, 0.7)',
-                fontSize: '0.9rem'
-              }}>
-                Powered by Advanced AI Algorithms
+                <div style={{
+                  color: '#00D9FF',
+                  fontSize: '1.2rem',
+                  fontWeight: '600',
+                  marginBottom: '0.5rem'
+                }}>
+                  Neural Network Architecture
+                </div>
+                <div style={{
+                  color: 'rgba(250, 250, 248, 0.7)',
+                  fontSize: '0.9rem'
+                }}>
+                  AI-Powered Hospitality Intelligence
+                </div>
               </div>
             </div>
+          </motion.div>
+
+          {/* RIGHT: Customer & Provider Cards Stacked */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            
+            {/* Customer Experience Card */}
+            <motion.div
+              style={{
+                background: 'linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(0, 217, 255, 0.05))',
+                border: '1px solid rgba(0, 217, 255, 0.3)',
+                borderRadius: '20px',
+                padding: '2.5rem',
+                backdropFilter: 'blur(10px)'
+              }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+                <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>👥</div>
+                <h3 style={{ color: '#00D9FF', fontSize: '1.8rem', fontWeight: '600' }}>
+                  For Customers
+                </h3>
+              </div>
+              
+              {[
+                { title: "End-to-End Support", desc: "Continuous AI assistance from check-in to checkout" },
+                { title: "Personalized Experience", desc: "Tailored recommendations and proactive service" }
+              ].map((feature, index) => (
+                <div key={index} style={{ 
+                  marginBottom: '1.5rem', 
+                  padding: '1.25rem', 
+                  background: 'rgba(0, 217, 255, 0.1)', 
+                  borderRadius: '10px' 
+                }}>
+                  <h4 style={{ 
+                    color: '#FAFAF8', 
+                    fontSize: '1.1rem', 
+                    fontWeight: '600', 
+                    marginBottom: '0.75rem' 
+                  }}>
+                    {feature.title}
+                  </h4>
+                  <p style={{ 
+                    color: 'rgba(250, 250, 248, 0.9)', 
+                    fontSize: '0.95rem', 
+                    lineHeight: '1.4',
+                    margin: 0
+                  }}>
+                    {feature.desc}
+                  </p>
+                </div>
+              ))}
+
+              <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '1.5rem' }}>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ color: '#FF6B35', fontSize: '1.75rem', fontWeight: '700' }}>98%</div>
+                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.8rem' }}>Satisfaction</div>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ color: '#FF6B35', fontSize: '1.75rem', fontWeight: '700' }}>45s</div>
+                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.8rem' }}>Response</div>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ color: '#FF6B35', fontSize: '1.75rem', fontWeight: '700' }}>24/7</div>
+                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.8rem' }}>Available</div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Provider Dashboard Card */}
+            <motion.div
+              style={{
+                background: 'linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(255, 107, 53, 0.05))',
+                border: '1px solid rgba(255, 107, 53, 0.3)',
+                borderRadius: '20px',
+                padding: '2.5rem',
+                backdropFilter: 'blur(10px)'
+              }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+                <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🏨</div>
+                <h3 style={{ color: '#FF6B35', fontSize: '1.8rem', fontWeight: '600' }}>
+                  For Providers
+                </h3>
+              </div>
+              
+              {[
+                { title: "Smart Administration", desc: "Automated workflows and intelligent task management" },
+                { title: "Live Analytics", desc: "Real-time insights for data-driven decisions" },
+                { title: "Instant Alerts", desc: "Proactive notifications for critical events" }
+              ].map((feature, index) => (
+                <div key={index} style={{ 
+                  marginBottom: '1.5rem', 
+                  padding: '1.25rem', 
+                  background: 'rgba(255, 107, 53, 0.1)', 
+                  borderRadius: '10px' 
+                }}>
+                  <h4 style={{ 
+                    color: '#FAFAF8', 
+                    fontSize: '1.1rem', 
+                    fontWeight: '600', 
+                    marginBottom: '0.75rem' 
+                  }}>
+                    {feature.title}
+                  </h4>
+                  <p style={{ 
+                    color: 'rgba(250, 250, 248, 0.9)', 
+                    fontSize: '0.95rem', 
+                    lineHeight: '1.4',
+                    margin: 0
+                  }}>
+                    {feature.desc}
+                  </p>
+                </div>
+              ))}
+
+              <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '1.5rem' }}>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ color: '#00D9FF', fontSize: '1.75rem', fontWeight: '700' }}>75%</div>
+                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.8rem' }}>Efficiency</div>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ color: '#00D9FF', fontSize: '1.75rem', fontWeight: '700' }}>89%</div>
+                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.8rem' }}>Cost Cut</div>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ color: '#00D9FF', fontSize: '1.75rem', fontWeight: '700' }}>24/7</div>
+                  <div style={{ color: 'rgba(250, 250, 248, 0.8)', fontSize: '0.8rem' }}>Monitor</div>
+                </div>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Contact Section */}

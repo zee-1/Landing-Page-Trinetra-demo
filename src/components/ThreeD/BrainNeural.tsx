@@ -305,18 +305,6 @@ const BrainNeural3D: React.FC<BrainNeural3DProps> = ({
         position: 'relative'
       }}
     >
-      {/* Loading/Fallback indicator */}
-      <div style={{
-        position: 'absolute',
-        color: '#00D9FF',
-        fontSize: '1rem',
-        fontWeight: '600',
-        textAlign: 'center',
-        pointerEvents: 'none',
-        zIndex: 1
-      }}>
-        🧠 Neural Network Loading...
-      </div>
     </div>
   )
 }
