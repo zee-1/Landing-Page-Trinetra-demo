@@ -544,7 +544,9 @@ const ProfessionalLanding: React.FC = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              position: 'relative'
+              position: 'relative',
+              height: '100%',
+              minHeight: '600px'
             }}
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -553,11 +555,10 @@ const ProfessionalLanding: React.FC = () => {
           >
             <div style={{ 
               position: 'relative',
-              border: '1px solid rgba(0, 217, 255, 0.2)',
-              borderRadius: '16px',
-              padding: '2rem',
-              background: 'rgba(26, 0, 51, 0.3)',
-              backdropFilter: 'blur(15px)'
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center'
             }}>
               <BrainNeural3D 
                 width={600} 
@@ -567,11 +568,8 @@ const ProfessionalLanding: React.FC = () => {
               
               {/* Neural Network Label */}
               <div style={{
-                position: 'absolute',
-                bottom: '-3rem',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                textAlign: 'center'
+                textAlign: 'center',
+                marginTop: '2rem'
               }}>
                 <div style={{
                   color: '#00D9FF',
