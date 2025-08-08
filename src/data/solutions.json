@@ -1,0 +1,68 @@
+{
+  "solutions": [
+    {
+      "id": "hotel-management",
+      "name": "Hotel Management AI",
+      "icon": "🏨",
+      "status": "available",
+      "shortDescription": "Complete AI-powered hotel management solution",
+      "overview": {
+        "title": "AI-Powered Hotel Excellence",
+        "description": "Transform your hospitality business with our comprehensive AI solution that manages everything from guest experience to operational efficiency. Built with sacred geometry principles for optimal energy flow and cosmic harmony.",
+        "keyFeatures": [
+          {
+            "feature": "Intelligent Guest Experience",
+            "description": "24/7 AI concierge with natural language processing, personalized recommendations, and predictive guest needs analysis"
+          },
+          {
+            "feature": "Dynamic Pricing Optimization",
+            "description": "Real-time market analysis and sacred geometry-based algorithms for optimal revenue management"
+          },
+          {
+            "feature": "Operational Excellence",
+            "description": "Staff scheduling, inventory management, and maintenance predictions using quantum computing principles"
+          },
+          {
+            "feature": "Sacred Space Design",
+            "description": "Room layouts optimized using ancient Vastu principles combined with modern comfort analytics"
+          },
+          {
+            "feature": "Energy Flow Analytics",
+            "description": "Monitor and optimize the cosmic energy flow throughout your property for enhanced guest satisfaction"
+          }
+        ],
+        "techStack": [
+          "Neural Networks",
+          "Natural Language Processing", 
+          "Computer Vision",
+          "Quantum Algorithms",
+          "Sacred Geometry Engine",
+          "Predictive Analytics"
+        ],
+        "benefits": [
+          "40% increase in guest satisfaction scores",
+          "35% reduction in operational costs",
+          "50% improvement in staff efficiency",
+          "25% boost in revenue per room",
+          "Cosmic harmony alignment rating: 95%"
+        ]
+      }
+    },
+    {
+      "id": "healthcare-ai",
+      "name": "Healthcare AI",
+      "icon": "⚕️",
+      "status": "coming_soon",
+      "shortDescription": "AI-driven healthcare solutions for modern medical practices",
+      "overview": null
+    }
+    
+  ],
+  "demos": {
+    "hotel-management": {
+      "name": "Hotel Management Demo",
+      "url": "https://demo.trinetra-ai.com/hotel",
+      "description": "Experience our AI-powered hotel management system in action"
+    }
+  }
+}

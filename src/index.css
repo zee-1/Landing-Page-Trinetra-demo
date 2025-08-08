@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fallback styles in case Tailwind doesn't load */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: #1a0033;
+  color: #FAFAF8;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Ensure custom colors are available */
+:root {
+  --cosmic-purple: #1a0033;
+  --sacred-saffron: #FF6B35;
+  --ethereal-cyan: #00D9FF;
+  --off-white: #FAFAF8;
+  --charcoal: #1C1C1E;
+}
+
+/* Accessibility Styles */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+.high-contrast {
+  --cosmic-purple: #000000;
+  --ethereal-cyan: #ffffff;
+  --sacred-saffron: #ffff00;
+  --off-white: #ffffff;
+}
+
+.high-contrast * {
+  border-color: currentColor !important;
+}
+
+.font-large {
+  font-size: 110% !important;
+}
+
+.font-larger {
+  font-size: 125% !important;
+}
+
+.focus-visible button:focus,
+.focus-visible a:focus,
+.focus-visible input:focus,
+.focus-visible textarea:focus,
+.focus-visible [tabindex]:focus {
+  outline: 3px solid #00D9FF !important;
+  outline-offset: 2px !important;
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #00D9FF;
+  color: #1a0033;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 0 0 8px 8px;
+  font-weight: bold;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Loading states */
+.loading-skeleton {
+  background: linear-gradient(90deg, 
+    rgba(26, 0, 51, 0.1) 25%, 
+    rgba(0, 217, 255, 0.1) 50%, 
+    rgba(26, 0, 51, 0.1) 75%);
+  background-size: 200% 100%;
+  animation: loading-shimmer 2s infinite;
+}
+
+@keyframes loading-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}

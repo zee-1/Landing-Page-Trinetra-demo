@@ -1,0 +1,123 @@
+{
+  "hero": {
+    "tagline": "Trinetra: Your Partner in AI-Powered Transformation",
+    "subtitle": "Elevate Your Business with Intelligent AI Solutions",
+    "description": "At Trinetra, we specialize in empowering businesses to achieve unparalleled efficiency and innovation through advanced AI. From comprehensive process re-engineering to cutting-edge generative AI assistance, we tailor solutions that drive tangible results.",
+    "visualElements": [
+      "3D mandala morphing to neural network",
+      "Floating mathematical equations",
+      "Sacred geometry patterns",
+      "Particle constellation system"
+    ]
+  },
+  "expertise": {
+    "description": "Trinetra is founded by a team of AI veterans, Person and Person, each bringing extensive experience in artificial intelligence to the forefront of our solutions.",
+    "founders": [
+      {
+        "name": "Person",
+        "role": "Co-Founder & AI Architect",
+        "expertise": ["Machine Learning", "Neural Networks", "AI Strategy"]
+      },
+      {
+        "name": "Person",
+        "role": "Co-Founder & Technology Lead", 
+        "expertise": ["Deep Learning", "Computer Vision", "AI Implementation"]
+      }
+    ],
+    "credentials": [
+      "AI Veterans with 15+ years experience",
+      "Published researchers in AI field",
+      "Enterprise AI deployment specialists"
+    ]
+  },
+  "solutions": {
+    "services": [
+      {
+        "title": "Process Re-engineering",
+        "description": "Analyzing and redesigning your existing business processes to integrate AI, enhancing efficiency and reducing operational costs.",
+        "benefits": ["Increased productivity", "Optimized resource allocation", "Improved decision-making"],
+        "icon": "process-icon"
+      },
+      {
+        "title": "Generative AI Assistance", 
+        "description": "Implementing AI models that can generate human-like text, images, or other media, automating content creation and creative tasks.",
+        "benefits": ["Accelerated content generation", "Enhanced creativity", "Reduced manual effort"],
+        "icon": "generative-icon"
+      },
+      {
+        "title": "Custom AI Development",
+        "description": "Building bespoke AI solutions tailored to your unique business challenges and opportunities.",
+        "benefits": ["Solutions perfectly aligned with your specific needs", "Competitive advantage", "Future-proofing your operations"],
+        "icon": "custom-icon"
+      },
+      {
+        "title": "AI Consulting",
+        "description": "Providing expert guidance and strategic roadmaps for AI adoption and implementation within your organization.",
+        "benefits": ["Clear direction for AI integration", "Risk mitigation", "Maximization of AI investment ROI"],
+        "icon": "consulting-icon"
+      }
+    ],
+    "whyChoose": [
+      {
+        "title": "Deep Industry Knowledge",
+        "description": "Our team's extensive experience in AI ensures we understand your challenges and deliver effective solutions."
+      },
+      {
+        "title": "Tailored Approach", 
+        "description": "We don't believe in one-size-fits-all. Our solutions are custom-built to meet your specific needs and goals."
+      },
+      {
+        "title": "Innovation at Core",
+        "description": "We continuously research and integrate the latest AI advancements to keep your business ahead of the curve."
+      },
+      {
+        "title": "Proven Results",
+        "description": "We are committed to delivering measurable outcomes that drive business growth and operational excellence."
+      }
+    ]
+  },
+  "product": {
+    "hospitality": {
+      "title": "AI Agent for Hospitality Management",
+      "description": "Introducing our flagship AI Agent, meticulously designed to revolutionize the hospitality sector. This dual-sided solution caters to both your valued customers and dedicated service providers, ensuring a seamless and efficient experience.",
+      "customer": [
+        {
+          "feature": "End-to-End Support",
+          "description": "From the moment of onboarding to a smooth checkout, our AI Agent provides continuous, intuitive assistance, enhancing the guest experience."
+        },
+        {
+          "feature": "Personalized Interactions",
+          "description": "Intelligent responses and proactive support ensure every guest feels valued and heard."
+        }
+      ],
+      "provider": [
+        {
+          "feature": "Streamlined Administration",
+          "description": "Automate routine tasks and optimize operational workflows, freeing up your team to focus on core activities."
+        },
+        {
+          "feature": "Logistics and Insights", 
+          "description": "Gain deep insights into your operations with real-time data analysis, enabling informed decision-making."
+        },
+        {
+          "feature": "Trigger Signals",
+          "description": "Receive immediate alerts and actionable insights for critical events, ensuring prompt responses and issue resolution."
+        },
+        {
+          "feature": "Enhanced Customer Support",
+          "description": "Empower your staff with AI-driven tools to provide superior customer service, leading to higher satisfaction."
+        }
+      ],
+      "visualDemo": "split-screen-interactive-demo"
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Ready to transform your business with AI? Contact us today to discuss how Trinetra can empower your success.",
+    "email": "Person@trinetra.com",
+    "phone": "Person",
+    "location": "Place",
+    "calendlyLink": "Calendar event",
+    "brochure": "File"
+  }
+}
