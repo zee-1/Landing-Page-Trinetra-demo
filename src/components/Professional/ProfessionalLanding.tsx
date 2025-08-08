@@ -421,7 +421,7 @@ const ProfessionalLanding: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 style={sectionTitleStyles}>
-            Where Ancient Wisdom Meets <span style={{ color: '#00D9FF' }}>Quantum Computing</span>
+            Where Process Meets <span style={{ color: '#00D9FF' }}>AI</span>
           </h2>
         </motion.div>
         {/* Founders */}
@@ -432,8 +432,8 @@ const ProfessionalLanding: React.FC = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h3 style={{ fontSize: '2.5rem', color: '#FF6B35', marginBottom: '3rem', fontWeight: '600' }}>
-            Our AI Veterans
+          <h3 style={{ fontSize: '2.5rem', color: '#FFFFFF', marginBottom: '3rem', fontWeight: '600' }}>
+            Our <span style={{ color: '#FF6B35' }}>AI</span> Veterans
           </h3>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '800px', margin: '0 auto' }}>
@@ -832,9 +832,9 @@ const ProfessionalLanding: React.FC = () => {
             viewport={{ once: true }}
           >
             {[
-              { icon: '📧', title: 'Email', value: 'Person@trinetra.com' },
-              { icon: '📞', title: 'Phone', value: 'Person' },
-              { icon: '📍', title: 'Location', value: 'Place' },
+              { icon: '📧', title: 'Email', value: 'Person@trinetra.online' },
+              { icon: '📞', title: 'Phone', value: '+91-1234567890' },
+              { icon: '📍', title: 'Location', value: 'Delhi' },
               { icon: '📅', title: 'Schedule', value: 'Calendar event' }
             ].map((contact, index) => (
               <motion.div
@@ -1040,7 +1040,7 @@ const ProfessionalLanding: React.FC = () => {
               color: 'rgba(250, 250, 248, 0.7)',
               fontSize: '0.9rem'
             }}>
-              © 2024 Trinetra AI Solutions. Where Ancient Wisdom Meets Quantum Computing.
+              © 2024 Trinetra AI Solutions. Where Process Meets AI.
             </div>
             <div style={{
               display: 'flex',
@@ -1054,240 +1054,240 @@ const ProfessionalLanding: React.FC = () => {
           </div>
         </div>
       </footer>
-    </div>
 
-    {/* Floating Sanskrit and Mathematical Symbols */}
-    <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 1 }}>
-      {/* Sanskrit Symbols */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '15%',
-          left: '5%',
-          fontSize: '1.5rem',
-          color: 'rgba(0, 217, 255, 0.3)',
-          fontWeight: '300'
-        }}
-        animate={{ 
-          y: [0, -20, 0],
-          opacity: [0.3, 0.6, 0.3]
-        }}
-        transition={{ 
-          duration: 8, 
-          repeat: Infinity, 
-          ease: 'easeInOut' 
-        }}
-      >
-        ॐ
-      </motion.div>
+      {/* Floating Sanskrit and Mathematical Symbols */}
+      <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 1 }}>
+        {/* Sanskrit Symbols */}
+        <motion.div
+          style={{
+            position: 'absolute',
+            top: '15%',
+            left: '5%',
+            fontSize: '1.5rem',
+            color: 'rgba(0, 217, 255, 0.3)',
+            fontWeight: '300'
+          }}
+          animate={{ 
+            y: [0, -20, 0],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ 
+            duration: 8, 
+            repeat: Infinity, 
+            ease: 'easeInOut' 
+          }}
+        >
+          ॐ
+        </motion.div>
 
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '25%',
-          right: '8%',
-          fontSize: '1.2rem',
-          color: 'rgba(255, 107, 53, 0.4)',
-          fontWeight: '300'
-        }}
-        animate={{ 
-          y: [0, -15, 0],
-          opacity: [0.4, 0.7, 0.4]
-        }}
-        transition={{ 
-          duration: 6, 
-          repeat: Infinity, 
-          ease: 'easeInOut',
-          delay: 2
-        }}
-      >
-        श्री
-      </motion.div>
+        <motion.div
+          style={{
+            position: 'absolute',
+            top: '25%',
+            right: '8%',
+            fontSize: '1.2rem',
+            color: 'rgba(255, 107, 53, 0.4)',
+            fontWeight: '300'
+          }}
+          animate={{ 
+            y: [0, -15, 0],
+            opacity: [0.4, 0.7, 0.4]
+          }}
+          transition={{ 
+            duration: 6, 
+            repeat: Infinity, 
+            ease: 'easeInOut',
+            delay: 2
+          }}
+        >
+          श्री
+        </motion.div>
 
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '45%',
-          left: '3%',
-          fontSize: '1.3rem',
-          color: 'rgba(0, 217, 255, 0.3)',
-          fontWeight: '300'
-        }}
-        animate={{ 
-          y: [0, -18, 0],
-          opacity: [0.3, 0.6, 0.3]
-        }}
-        transition={{ 
-          duration: 7, 
-          repeat: Infinity, 
-          ease: 'easeInOut',
-          delay: 4
-        }}
-      >
-        गुरु
-      </motion.div>
+        <motion.div
+          style={{
+            position: 'absolute',
+            top: '45%',
+            left: '3%',
+            fontSize: '1.3rem',
+            color: 'rgba(0, 217, 255, 0.3)',
+            fontWeight: '300'
+          }}
+          animate={{ 
+            y: [0, -18, 0],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ 
+            duration: 7, 
+            repeat: Infinity, 
+            ease: 'easeInOut',
+            delay: 4
+          }}
+        >
+          गुरु
+        </motion.div>
 
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '65%',
-          right: '4%',
-          fontSize: '1.4rem',
-          color: 'rgba(255, 107, 53, 0.3)',
-          fontWeight: '300'
-        }}
-        animate={{ 
-          y: [0, -22, 0],
-          opacity: [0.3, 0.6, 0.3]
-        }}
-        transition={{ 
-          duration: 9, 
-          repeat: Infinity, 
-          ease: 'easeInOut',
-          delay: 1
-        }}
-      >
-        यंत्र
-      </motion.div>
+        <motion.div
+          style={{
+            position: 'absolute',
+            top: '65%',
+            right: '4%',
+            fontSize: '1.4rem',
+            color: 'rgba(255, 107, 53, 0.3)',
+            fontWeight: '300'
+          }}
+          animate={{ 
+            y: [0, -22, 0],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ 
+            duration: 9, 
+            repeat: Infinity, 
+            ease: 'easeInOut',
+            delay: 1
+          }}
+        >
+          यंत्र
+        </motion.div>
 
-      {/* Mathematical Symbols */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '20%',
-          left: '15%',
-          fontSize: '1.2rem',
-          color: 'rgba(0, 217, 255, 0.4)',
-          fontFamily: 'monospace'
-        }}
-        animate={{ 
-          y: [0, -16, 0],
-          opacity: [0.4, 0.7, 0.4]
-        }}
-        transition={{ 
-          duration: 5, 
-          repeat: Infinity, 
-          ease: 'easeInOut',
-          delay: 3
-        }}
-      >
-        ∞
-      </motion.div>
+        {/* Mathematical Symbols */}
+        <motion.div
+          style={{
+            position: 'absolute',
+            top: '20%',
+            left: '15%',
+            fontSize: '1.2rem',
+            color: 'rgba(0, 217, 255, 0.4)',
+            fontFamily: 'monospace'
+          }}
+          animate={{ 
+            y: [0, -16, 0],
+            opacity: [0.4, 0.7, 0.4]
+          }}
+          transition={{ 
+            duration: 5, 
+            repeat: Infinity, 
+            ease: 'easeInOut',
+            delay: 3
+          }}
+        >
+          ∞
+        </motion.div>
 
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '35%',
-          right: '12%',
-          fontSize: '1.1rem',
-          color: 'rgba(255, 107, 53, 0.4)',
-          fontFamily: 'monospace'
-        }}
-        animate={{ 
-          y: [0, -14, 0],
-          opacity: [0.4, 0.7, 0.4]
-        }}
-        transition={{ 
-          duration: 6.5, 
-          repeat: Infinity, 
-          ease: 'easeInOut',
-          delay: 1.5
-        }}
-      >
-        ∑
-      </motion.div>
+        <motion.div
+          style={{
+            position: 'absolute',
+            top: '35%',
+            right: '12%',
+            fontSize: '1.1rem',
+            color: 'rgba(255, 107, 53, 0.4)',
+            fontFamily: 'monospace'
+          }}
+          animate={{ 
+            y: [0, -14, 0],
+            opacity: [0.4, 0.7, 0.4]
+          }}
+          transition={{ 
+            duration: 6.5, 
+            repeat: Infinity, 
+            ease: 'easeInOut',
+            delay: 1.5
+          }}
+        >
+          ∑
+        </motion.div>
 
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '55%',
-          left: '8%',
-          fontSize: '1.3rem',
-          color: 'rgba(0, 217, 255, 0.3)',
-          fontFamily: 'monospace'
-        }}
-        animate={{ 
-          y: [0, -20, 0],
-          opacity: [0.3, 0.6, 0.3]
-        }}
-        transition={{ 
-          duration: 7.5, 
-          repeat: Infinity, 
-          ease: 'easeInOut',
-          delay: 2.5
-        }}
-      >
-        π
-      </motion.div>
+        <motion.div
+          style={{
+            position: 'absolute',
+            top: '55%',
+            left: '8%',
+            fontSize: '1.3rem',
+            color: 'rgba(0, 217, 255, 0.3)',
+            fontFamily: 'monospace'
+          }}
+          animate={{ 
+            y: [0, -20, 0],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ 
+            duration: 7.5, 
+            repeat: Infinity, 
+            ease: 'easeInOut',
+            delay: 2.5
+          }}
+        >
+          π
+        </motion.div>
 
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '75%',
-          right: '15%',
-          fontSize: '1.2rem',
-          color: 'rgba(255, 107, 53, 0.4)',
-          fontFamily: 'monospace'
-        }}
-        animate={{ 
-          y: [0, -17, 0],
-          opacity: [0.4, 0.7, 0.4]
-        }}
-        transition={{ 
-          duration: 8.5, 
-          repeat: Infinity, 
-          ease: 'easeInOut',
-          delay: 0.5
-        }}
-      >
-        ∇
-      </motion.div>
+        <motion.div
+          style={{
+            position: 'absolute',
+            top: '75%',
+            right: '15%',
+            fontSize: '1.2rem',
+            color: 'rgba(255, 107, 53, 0.4)',
+            fontFamily: 'monospace'
+          }}
+          animate={{ 
+            y: [0, -17, 0],
+            opacity: [0.4, 0.7, 0.4]
+          }}
+          transition={{ 
+            duration: 8.5, 
+            repeat: Infinity, 
+            ease: 'easeInOut',
+            delay: 0.5
+          }}
+        >
+          ∇
+        </motion.div>
 
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '40%',
-          left: '25%',
-          fontSize: '1.1rem',
-          color: 'rgba(0, 217, 255, 0.3)',
-          fontFamily: 'monospace'
-        }}
-        animate={{ 
-          y: [0, -13, 0],
-          opacity: [0.3, 0.6, 0.3]
-        }}
-        transition={{ 
-          duration: 6, 
-          repeat: Infinity, 
-          ease: 'easeInOut',
-          delay: 4.5
-        }}
-      >
-        Φ
-      </motion.div>
+        <motion.div
+          style={{
+            position: 'absolute',
+            top: '40%',
+            left: '25%',
+            fontSize: '1.1rem',
+            color: 'rgba(0, 217, 255, 0.3)',
+            fontFamily: 'monospace'
+          }}
+          animate={{ 
+            y: [0, -13, 0],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ 
+            duration: 6, 
+            repeat: Infinity, 
+            ease: 'easeInOut',
+            delay: 4.5
+          }}
+        >
+          Φ
+        </motion.div>
 
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '60%',
-          right: '25%',
-          fontSize: '1.2rem',
-          color: 'rgba(255, 107, 53, 0.3)',
-          fontFamily: 'monospace'
-        }}
-        animate={{ 
-          y: [0, -19, 0],
-          opacity: [0.3, 0.6, 0.3]
-        }}
-        transition={{ 
-          duration: 7, 
-          repeat: Infinity, 
-          ease: 'easeInOut',
-          delay: 3.5
-        }}
-      >
-        ∫
-      </motion.div>
+        <motion.div
+          style={{
+            position: 'absolute',
+            top: '60%',
+            right: '25%',
+            fontSize: '1.2rem',
+            color: 'rgba(255, 107, 53, 0.3)',
+            fontFamily: 'monospace'
+          }}
+          animate={{ 
+            y: [0, -19, 0],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ 
+            duration: 7, 
+            repeat: Infinity, 
+            ease: 'easeInOut',
+            delay: 3.5
+          }}
+        >
+          ∫
+        </motion.div>
+      </div>
     </div>
   )
 }

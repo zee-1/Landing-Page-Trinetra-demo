@@ -8,7 +8,7 @@ This is a landing page project for Trinetra AI Solutions - a premium AI consulta
 
 ## Architecture & Design
 
-**Core Concept:** "Digital Vedas" - Where ancient wisdom meets quantum computing
+**Core Concept:** "Digital Vedas" - Where Process Meets AI
 
 **Technology Stack (Planned):**
 - Frontend: React 18+ with TypeScript

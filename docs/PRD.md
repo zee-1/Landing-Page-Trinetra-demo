@@ -84,7 +84,7 @@ Create a visually stunning, minimal landing page that seamlessly blends ancient 
 ### 5. Design System
 
 #### 5.1 Visual Theme
-**Core Concept:** "Digital Vedas" - Where ancient wisdom meets quantum computing
+**Core Concept:** "Digital Vedas" - Where Process Meets AI
 
 **Design Pillars:**
 - Sacred geometry patterns (Sri Yantra, Fibonacci spirals)

@@ -37,7 +37,7 @@ const TestHero: React.FC = () => {
           opacity: 0.9
         }}
       >
-        Where Ancient Wisdom Meets Quantum Computing
+        Where Process Meets AI
       </p>
       
       <button

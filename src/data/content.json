@@ -14,14 +14,14 @@
     "description": "Trinetra is founded by a team of AI veterans, Person and Person, each bringing extensive experience in artificial intelligence to the forefront of our solutions.",
     "founders": [
       {
-        "name": "Person",
+        "name": "Vinayak Rana",
         "role": "Co-Founder & AI Architect",
         "expertise": ["Machine Learning", "Neural Networks", "AI Strategy"]
       },
       {
-        "name": "Person",
+        "name": "Mohammad Zaid Khan",
         "role": "Co-Founder & Technology Lead", 
-        "expertise": ["Deep Learning", "Computer Vision", "AI Implementation"]
+        "expertise": ["Data Science", "Generative AI", "AI Implementation", "MLOps"]
       }
     ],
     "credentials": [
@@ -114,9 +114,9 @@
   "contact": {
     "title": "Get in Touch",
     "subtitle": "Ready to transform your business with AI? Contact us today to discuss how Trinetra can empower your success.",
-    "email": "Person@trinetra.com",
-    "phone": "Person",
-    "location": "Place",
+    "email": "Person@trinetra.online",
+    "phone": "+91-99999999",
+    "location": "Delhi",
     "calendlyLink": "Calendar event",
     "brochure": "File"
   }
