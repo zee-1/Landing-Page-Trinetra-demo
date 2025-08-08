@@ -606,9 +606,14 @@ const ProfessionalLanding: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-                <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>👥</div>
-                <h3 style={{ color: '#00D9FF', fontSize: '1.8rem', fontWeight: '600' }}>
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '1rem', 
+                marginBottom: '1.5rem' 
+              }}>
+                <div style={{ fontSize: '3rem' }}>👥</div>
+                <h3 style={{ color: '#00D9FF', fontSize: '1.8rem', fontWeight: '600', margin: 0 }}>
                   For Customers
                 </h3>
               </div>
@@ -672,9 +677,14 @@ const ProfessionalLanding: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-                <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🏨</div>
-                <h3 style={{ color: '#FF6B35', fontSize: '1.8rem', fontWeight: '600' }}>
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '1rem', 
+                marginBottom: '1.5rem' 
+              }}>
+                <div style={{ fontSize: '3rem' }}>🏨</div>
+                <h3 style={{ color: '#FF6B35', fontSize: '1.8rem', fontWeight: '600', margin: 0 }}>
                   For Providers
                 </h3>
               </div>
