@@ -10,13 +10,14 @@ interface NavigationItem {
 const FloatingNavigation: React.FC = () => {
   const [activeSection, setActiveSection] = useState('hero')
   const [isVisible, setIsVisible] = useState(false)
+  const [expandedItem, setExpandedItem] = useState<string | null>(null)
 
   const navigationItems: NavigationItem[] = [
-    { id: 'hero', label: 'Home', icon: 'ॠ' },
-    { id: 'philosophy', label: 'Philosophy', icon: '🔮' },
-    { id: 'solutions', label: 'Solutions', icon: '⬡' },
-    { id: 'product', label: 'Product', icon: '🤖' },
-    { id: 'contact', label: 'Contact', icon: '✨' }
+    { id: 'hero', label: 'Home', icon: '🏠' },
+    { id: 'philosophy', label: 'Philosophy', icon: '🧠' },
+    { id: 'solutions', label: 'Solutions', icon: '⚙️' },
+    { id: 'product', label: 'Product', icon: '🚀' },
+    { id: 'contact', label: 'Contact', icon: '📞' }
   ]
 
   useEffect(() => {
@@ -68,68 +69,69 @@ const FloatingNavigation: React.FC = () => {
     top: '50%',
     transform: 'translateY(-50%)',
     zIndex: 50,
-    background: 'linear-gradient(135deg, rgba(26, 0, 51, 0.8), rgba(26, 0, 51, 0.6))',
-    backdropFilter: 'blur(10px)',
-    borderRadius: '16px',
-    border: '1px solid rgba(0, 217, 255, 0.2)',
-    padding: '0.5rem',
-    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3)'
+    background: 'rgba(26, 0, 51, 0.85)',
+    backdropFilter: 'blur(15px)',
+    borderRadius: '20px',
+    border: '1px solid rgba(0, 217, 255, 0.25)',
+    padding: '0.75rem',
+    boxShadow: '0 8px 25px rgba(0, 0, 0, 0.2)',
+    minWidth: '4.5rem',
+    overflow: 'visible'
   }
 
-  const navItemStyles = (isActive: boolean): React.CSSProperties => ({
-    width: '3rem',
+  const navItemStyles = (isActive: boolean, isExpanded: boolean): React.CSSProperties => ({
+    width: isExpanded ? 'auto' : '3rem',
     height: '3rem',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: '12px',
+    justifyContent: 'flex-start',
+    borderRadius: '15px',
     marginBottom: '0.5rem',
     cursor: 'pointer',
-    transition: 'all 0.3s ease',
+    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
     background: isActive 
-      ? 'linear-gradient(45deg, #FF6B35, #00D9FF)' 
+      ? 'rgba(0, 217, 255, 0.15)'
       : 'transparent',
-    color: isActive ? '#1a0033' : '#00D9FF',
-    position: 'relative'
+    color: isActive ? '#00D9FF' : 'rgba(0, 217, 255, 0.7)',
+    border: isActive ? '1px solid rgba(0, 217, 255, 0.3)' : '1px solid transparent',
+    position: 'relative',
+    padding: '0 1rem 0 0.5rem',
+    minWidth: '3rem',
+    overflow: 'visible'
   })
 
-  const tooltipStyles: React.CSSProperties = {
-    position: 'absolute',
-    right: '100%',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    marginRight: '0.75rem',
-    padding: '0.5rem 0.75rem',
-    background: 'rgba(26, 0, 51, 0.9)',
-    color: '#FAFAF8',
+  const labelStyles = (isExpanded: boolean): React.CSSProperties => ({
+    marginLeft: '0.5rem',
     fontSize: '0.875rem',
-    borderRadius: '8px',
+    fontWeight: '500',
     whiteSpace: 'nowrap',
-    opacity: 0,
-    pointerEvents: 'none',
-    border: '1px solid rgba(0, 217, 255, 0.2)',
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
-  }
+    opacity: isExpanded ? 1 : 0,
+    transform: isExpanded ? 'translateX(0)' : 'translateX(-10px)',
+    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+    position: 'relative',
+    zIndex: 1
+  })
 
   const scrollToTopStyles: React.CSSProperties = {
     position: 'fixed',
     bottom: '2rem',
     right: '1.5rem',
-    width: '3.5rem',
-    height: '3.5rem',
-    background: 'linear-gradient(45deg, #FF6B35, #00D9FF)',
-    color: '#1a0033',
+    width: '3.25rem',
+    height: '3.25rem',
+    background: 'rgba(0, 217, 255, 0.15)',
+    color: '#00D9FF',
     borderRadius: '50%',
-    border: 'none',
+    border: '1px solid rgba(0, 217, 255, 0.3)',
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: '1.5rem',
+    fontSize: '1.25rem',
     fontWeight: 'bold',
-    boxShadow: '0 10px 30px rgba(0, 217, 255, 0.3)',
+    boxShadow: '0 6px 20px rgba(0, 217, 255, 0.15)',
     zIndex: 50,
-    transition: 'all 0.3s ease'
+    transition: 'all 0.3s ease',
+    backdropFilter: 'blur(10px)'
   }
 
   return (
@@ -144,49 +146,64 @@ const FloatingNavigation: React.FC = () => {
             exit={{ opacity: 0, x: 100 }}
             transition={{ duration: 0.3 }}
           >
-            {navigationItems.map((item, index) => (
-              <motion.button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                style={navItemStyles(activeSection === item.id)}
-                className="nav-item"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.1)'
-                  const tooltip = e.currentTarget.querySelector('.tooltip') as HTMLElement
-                  if (tooltip) tooltip.style.opacity = '1'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)'
-                  const tooltip = e.currentTarget.querySelector('.tooltip') as HTMLElement
-                  if (tooltip) tooltip.style.opacity = '0'
-                }}
-              >
-                <span style={{ fontSize: '1.25rem' }}>{item.icon}</span>
-                
-                {/* Tooltip */}
-                <div className="tooltip" style={tooltipStyles}>
-                  {item.label}
+            {navigationItems.map((item, index) => {
+              const isExpanded = expandedItem === item.id
+              const isActive = activeSection === item.id
+              
+              return (
+                <motion.button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  style={navItemStyles(isActive, isExpanded)}
+                  className="nav-item"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0, width: isExpanded ? 'auto' : '3rem' }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  onMouseEnter={() => {
+                    setExpandedItem(item.id)
+                  }}
+                  onMouseLeave={() => {
+                    setExpandedItem(null)
+                  }}
+                >
+                  {/* Icon */}
                   <div style={{
-                    position: 'absolute',
-                    right: 0,
-                    top: '50%',
-                    transform: 'translate(100%, -50%)',
-                    width: 0,
-                    height: 0,
-                    borderLeft: '4px solid rgba(26, 0, 51, 0.9)',
-                    borderTop: '4px solid transparent',
-                    borderBottom: '4px solid transparent'
-                  }} />
-                </div>
-              </motion.button>
-            ))}
+                    width: '3rem',
+                    height: '3rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.2rem',
+                    flexShrink: 0,
+                    position: 'relative',
+                    zIndex: 1
+                  }}>
+                    {item.icon}
+                  </div>
+                  
+                  {/* Label */}
+                  {isExpanded && (
+                    <motion.span
+                      style={labelStyles(isExpanded)}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {item.label}
+                    </motion.span>
+                  )}
+                </motion.button>
+              )
+            })}
 
             <style>{`
               .nav-item:hover {
-                box-shadow: 0 5px 20px rgba(0, 217, 255, 0.4);
+                box-shadow: 0 4px 15px rgba(0, 217, 255, 0.2);
+                transform: translateY(-1px);
+              }
+              .nav-item:active {
+                transform: translateY(0);
               }
             `}</style>
           </motion.nav>
@@ -204,12 +221,14 @@ const FloatingNavigation: React.FC = () => {
             exit={{ opacity: 0, scale: 0, rotate: 180 }}
             transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'scale(1.1)'
-              e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 217, 255, 0.5)'
+              e.currentTarget.style.transform = 'scale(1.05)'
+              e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 217, 255, 0.25)'
+              e.currentTarget.style.background = 'rgba(0, 217, 255, 0.2)'
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'scale(1)'
-              e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 217, 255, 0.3)'
+              e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 217, 255, 0.15)'
+              e.currentTarget.style.background = 'rgba(0, 217, 255, 0.15)'
             }}
           >
             <motion.div
@@ -248,7 +267,7 @@ const FloatingNavigation: React.FC = () => {
           top: 0,
           left: 0,
           height: '3px',
-          background: 'linear-gradient(90deg, #FF6B35, #00D9FF)',
+          background: 'linear-gradient(90deg, rgba(0, 217, 255, 0.8), rgba(0, 217, 255, 0.6))',
           zIndex: 50,
           transformOrigin: 'left',
           scaleX: typeof window !== 'undefined' ? 
