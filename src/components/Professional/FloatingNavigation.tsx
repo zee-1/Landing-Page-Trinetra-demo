@@ -81,7 +81,7 @@ const FloatingNavigation: React.FC = () => {
   }
 
   const navItemStyles = (isActive: boolean, isExpanded: boolean): React.CSSProperties => ({
-    width: isExpanded ? 'auto' : '3rem',
+    width: isExpanded ? 'auto' : '3.5rem',
     height: '3rem',
     display: 'flex',
     alignItems: 'center',

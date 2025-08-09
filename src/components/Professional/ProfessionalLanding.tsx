@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import FloatingNavigation from './FloatingNavigation'
+import DetachedNavigation from '../Navigation/DetachedNavigation'
+import FooterNavigation from '../Navigation/FooterNavigation'
 import AccessibilityControls from './AccessibilityControls'
 import SolutionsSection from './SolutionsSection'
 import BrainNeural3D from '../ThreeD/BrainNeural'
@@ -206,6 +208,7 @@ const ProfessionalLanding: React.FC = () => {
 
       {/* Navigation & Accessibility */}
       <FloatingNavigation />
+      <DetachedNavigation />
       <AccessibilityControls />
 
       {/* Skip to content link for screen readers */}

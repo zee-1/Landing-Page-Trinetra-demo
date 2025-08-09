@@ -11,11 +11,9 @@ interface SchedulingWidgetProps {
 const SchedulingWidget: React.FC<SchedulingWidgetProps> = ({ 
   calendlyUrl,
   acuityUrl, 
-  calComUrl,
-  customBookingUrl
+  calComUrl
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedPlatform, setSelectedPlatform] = useState<string>('')
 
   // Available scheduling platforms
   const schedulingOptions = [
@@ -42,8 +40,7 @@ const SchedulingWidget: React.FC<SchedulingWidgetProps> = ({
     }
   ]
 
-  const handleScheduleClick = (platform: string, url: string) => {
-    setSelectedPlatform(platform)
+  const handleScheduleClick = (_platform: string, url: string) => {
     // Open scheduling platform in new window
     window.open(url, '_blank', 'width=800,height=600,scrollbars=yes,resizable=yes')
   }
