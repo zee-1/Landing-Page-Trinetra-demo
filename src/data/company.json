@@ -1,0 +1,64 @@
+{
+  "name": "Trinetra AI Solutions",
+  "tagline": "Where Process Meets AI",
+  "mission": "Bridging ancient wisdom with modern AI technology to transform businesses ethically and efficiently.",
+  "vision": "To be the global leader in AI solutions that honor both technological innovation and timeless human values.",
+  "founded": "2023",
+  "headquarters": "Delhi, India",
+  "story": {
+    "title": "Our Journey: From Ancient Wisdom to Modern AI",
+    "description": "Trinetra AI Solutions was born from the vision of bridging timeless Vedic wisdom with cutting-edge artificial intelligence. Our founders recognized that true innovation comes not just from advanced algorithms, but from understanding the deeper patterns and principles that govern both human consciousness and digital intelligence.",
+    "timeline": [
+      {
+        "year": "2023",
+        "quarter": "Q1",
+        "title": "Company Foundation",
+        "description": "Trinetra AI Solutions was founded with the vision of ethical AI development",
+        "milestone": "foundation"
+      },
+      {
+        "year": "2023",
+        "quarter": "Q2", 
+        "title": "First AI Solutions",
+        "description": "Developed our first suite of AI tools for business process optimization",
+        "milestone": "product-launch"
+      },
+      {
+        "year": "2023",
+        "quarter": "Q3",
+        "title": "Hospitality AI Platform",
+        "description": "Launched comprehensive AI platform for hospitality management",
+        "milestone": "major-product"
+      },
+      {
+        "year": "2024",
+        "quarter": "Q1",
+        "title": "Market Expansion",
+        "description": "Expanded services to enterprise clients across multiple industries",
+        "milestone": "expansion"
+      }
+    ]
+  },
+  "philosophy": {
+    "title": "Ancient Wisdom Meets Modern Innovation",
+    "description": "We believe that the most powerful AI solutions emerge when we combine the precision of modern technology with the wisdom of ancient mathematical and philosophical traditions.",
+    "principles": [
+      {
+        "title": "Vedic Mathematics Integration",
+        "description": "Incorporating time-tested mathematical principles from ancient Indian texts into our algorithms"
+      },
+      {
+        "title": "Sacred Geometry Patterns", 
+        "description": "Using geometric patterns found in nature to optimize AI model architectures"
+      },
+      {
+        "title": "Ethical AI Development",
+        "description": "Building AI systems that prioritize human welfare and ethical considerations"
+      },
+      {
+        "title": "Holistic Problem Solving",
+        "description": "Approaching challenges with a comprehensive understanding of business, technology, and human factors"
+      }
+    ]
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "services": [
+    {
+      "id": "process-reengineering",
+      "title": "Process Re-engineering",
+      "description": "Analyzing and redesigning your existing business processes to integrate AI, enhancing efficiency and reducing operational costs.",
+      "benefits": ["Increased productivity", "Optimized resource allocation", "Improved decision-making"],
+      "icon": "⚙️",
+      "detailedDescription": "Our process re-engineering service transforms your business operations through intelligent automation and AI integration.",
+      "features": [
+        "Business Process Analysis",
+        "AI Integration Strategy", 
+        "Workflow Optimization",
+        "Performance Monitoring"
+      ]
+    },
+    {
+      "id": "generative-ai",
+      "title": "Generative AI Assistance", 
+      "description": "Implementing AI models that can generate human-like text, images, or other media, automating content creation and creative tasks.",
+      "benefits": ["Accelerated content generation", "Enhanced creativity", "Reduced manual effort"],
+      "icon": "🎨",
+      "detailedDescription": "Harness the power of generative AI to automate content creation and enhance creative workflows.",
+      "features": [
+        "Custom AI Model Development",
+        "Content Generation Tools",
+        "Creative Workflow Integration",
+        "Quality Assurance Systems"
+      ]
+    },
+    {
+      "id": "custom-ai-development",
+      "title": "Custom AI Development",
+      "description": "Building bespoke AI solutions tailored to your unique business challenges and opportunities.",
+      "benefits": ["Solutions perfectly aligned with your specific needs", "Competitive advantage", "Future-proofing your operations"],
+      "icon": "🔧",
+      "detailedDescription": "End-to-end custom AI development from conception to deployment and maintenance.",
+      "features": [
+        "Requirements Analysis",
+        "Custom Model Training",
+        "Solution Architecture",
+        "Deployment & Maintenance"
+      ]
+    },
+    {
+      "id": "ai-consulting",
+      "title": "AI Consulting",
+      "description": "Providing expert guidance and strategic roadmaps for AI adoption and implementation within your organization.",
+      "benefits": ["Clear direction for AI integration", "Risk mitigation", "Maximization of AI investment ROI"],
+      "icon": "💡",
+      "detailedDescription": "Strategic AI consulting to guide your organization's AI transformation journey.",
+      "features": [
+        "AI Readiness Assessment",
+        "Strategic Roadmapping",
+        "Technology Selection",
+        "Implementation Planning"
+      ]
+    }
+  ],
+  "whyChoose": [
+    {
+      "title": "Deep Industry Knowledge",
+      "description": "Our team's extensive experience in AI ensures we understand your challenges and deliver effective solutions.",
+      "icon": "🎓"
+    },
+    {
+      "title": "Tailored Approach", 
+      "description": "We don't believe in one-size-fits-all. Our solutions are custom-built to meet your specific needs and goals.",
+      "icon": "🎯"
+    },
+    {
+      "title": "Innovation at Core",
+      "description": "We continuously research and integrate the latest AI advancements to keep your business ahead of the curve.",
+      "icon": "⚡"
+    },
+    {
+      "title": "Proven Results",
+      "description": "We are committed to delivering measurable outcomes that drive business growth and operational excellence.",
+      "icon": "📈"
+    }
+  ]
+}

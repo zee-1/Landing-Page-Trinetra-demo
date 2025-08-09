@@ -1,0 +1,21 @@
+{
+  "title": "Get in Touch",
+  "subtitle": "Ready to transform your business with AI? Contact us today to discuss how Trinetra can empower your success.",
+  "email": "contact@trinetra-ai.com",
+  "phone": "+91-1234567890",
+  "location": "Delhi, India",
+  "calendlyLink": "https://calendly.com/trinetra-ai/consultation",
+  "acuityLink": "https://trinetra-ai.acuityscheduling.com",
+  "calComLink": "https://cal.com/trinetra-ai/meeting",
+  "brochure": "File",
+  "office": {
+    "address": "123 Tech Hub, Cyber City, Gurugram, Haryana 122018",
+    "hours": "Monday - Friday: 9:00 AM - 6:00 PM IST",
+    "timezone": "Asia/Kolkata"
+  },
+  "social": {
+    "linkedin": "https://linkedin.com/company/trinetra-ai",
+    "twitter": "https://twitter.com/trinetra_ai",
+    "github": "https://github.com/trinetra-ai"
+  }
+}

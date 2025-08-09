@@ -1,0 +1,74 @@
+{
+  "hospitality": {
+    "title": "AI Agent for Hospitality Management",
+    "subtitle": "Transform Your Hospitality Business with Intelligent AI",
+    "description": "Introducing our flagship AI Agent, meticulously designed to revolutionize the hospitality sector. This dual-sided solution caters to both your valued customers and dedicated service providers, ensuring a seamless and efficient experience.",
+    "customer": {
+      "title": "Enhanced Customer Experience",
+      "features": [
+        {
+          "feature": "End-to-End Support",
+          "description": "From the moment of onboarding to a smooth checkout, our AI Agent provides continuous, intuitive assistance, enhancing the guest experience.",
+          "icon": "🎯"
+        },
+        {
+          "feature": "Personalized Interactions",
+          "description": "Intelligent responses and proactive support ensure every guest feels valued and heard.",
+          "icon": "💬"
+        },
+        {
+          "feature": "24/7 Availability",
+          "description": "Round-the-clock assistance for all guest inquiries and requests.",
+          "icon": "🕒"
+        },
+        {
+          "feature": "Multi-language Support",
+          "description": "Communicate with guests in their preferred language for better satisfaction.",
+          "icon": "🌐"
+        }
+      ]
+    },
+    "provider": {
+      "title": "Operational Excellence for Providers",
+      "features": [
+        {
+          "feature": "Streamlined Administration",
+          "description": "Automate routine tasks and optimize operational workflows, freeing up your team to focus on core activities.",
+          "icon": "⚙️"
+        },
+        {
+          "feature": "Logistics and Insights", 
+          "description": "Gain deep insights into your operations with real-time data analysis, enabling informed decision-making.",
+          "icon": "📊"
+        },
+        {
+          "feature": "Trigger Signals",
+          "description": "Receive immediate alerts and actionable insights for critical events, ensuring prompt responses and issue resolution.",
+          "icon": "⚡"
+        },
+        {
+          "feature": "Enhanced Customer Support",
+          "description": "Empower your staff with AI-driven tools to provide superior customer service, leading to higher satisfaction.",
+          "icon": "🎧"
+        },
+        {
+          "feature": "Revenue Optimization",
+          "description": "Dynamic pricing and occupancy management to maximize revenue potential.",
+          "icon": "💰"
+        },
+        {
+          "feature": "Predictive Maintenance",
+          "description": "Anticipate maintenance needs and prevent issues before they impact guests.",
+          "icon": "🔧"
+        }
+      ]
+    },
+    "visualDemo": "split-screen-interactive-demo",
+    "benefits": [
+      "40% increase in guest satisfaction",
+      "35% reduction in operational costs", 
+      "50% improvement in staff efficiency",
+      "25% boost in revenue per room"
+    ]
+  }
+}

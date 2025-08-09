@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 
@@ -19,7 +19,64 @@ interface DetachedNavItem {
 const DetachedNavigation: React.FC = () => {
   const [expandedItem, setExpandedItem] = useState<string | null>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [panelPosition, setPanelPosition] = useState<{ top?: string; bottom?: string; maxHeight?: string }>({ top: '0' })
+  const containerRef = useRef<HTMLDivElement>(null)
   const navigate = useNavigate()
+
+  // Calculate optimal panel position to avoid screen overflow
+  const calculatePanelPosition = (itemIndex: number) => {
+    if (!containerRef.current) return { top: '0' }
+    
+    const containerRect = containerRef.current.getBoundingClientRect()
+    const itemHeight = 64 // Height of each nav item including margin
+    const panelHeight = 400 // Maximum height of expanded panel
+    const itemOffset = itemIndex * itemHeight
+    const itemAbsoluteTop = containerRect.top + itemOffset
+    
+    const viewportHeight = window.innerHeight
+    const spaceBelow = viewportHeight - itemAbsoluteTop
+    const spaceAbove = itemAbsoluteTop
+    const panelMargin = 20 // Safe margin from screen edges
+    
+    // If panel would overflow bottom of screen
+    if (spaceBelow < (panelHeight + panelMargin)) {
+      // If there's enough space above, position panel above the item
+      if (spaceAbove > (panelHeight + panelMargin)) {
+        return { 
+          bottom: `${itemHeight}px`,
+          top: 'auto'
+        }
+      }
+      // If neither above nor below has enough space, center it in available space
+      else {
+        const availableHeight = Math.max(spaceAbove, spaceBelow) - panelMargin
+        const centerOffset = (itemHeight - Math.min(panelHeight, availableHeight)) / 2
+        return { 
+          top: `${centerOffset}px`,
+          maxHeight: `${availableHeight}px`
+        }
+      }
+    }
+    
+    // Default position aligned with nav item
+    return { top: '0' }
+  }
+
+  // Handle window resize to recalculate panel positions
+  useEffect(() => {
+    const handleResize = () => {
+      if (expandedItem) {
+        const currentIndex = navigationItems.findIndex(item => item.id === expandedItem)
+        if (currentIndex !== -1) {
+          const position = calculatePanelPosition(currentIndex)
+          setPanelPosition(position)
+        }
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [expandedItem])
 
   // Navigation items with expandable sections
   const navigationItems: DetachedNavItem[] = [
@@ -180,11 +237,11 @@ const DetachedNavigation: React.FC = () => {
     willChange: 'transform'
   })
 
-  // Expandable section styles
+  // Expandable section styles - dynamic positioning
   const sectionPanelStyles: React.CSSProperties = {
     position: 'absolute',
     left: '100%',
-    top: '0',
+    ...panelPosition,
     marginLeft: '1rem',
     background: 'rgba(26, 0, 51, 0.95)',
     backdropFilter: 'blur(20px)',
@@ -192,6 +249,8 @@ const DetachedNavigation: React.FC = () => {
     border: '1px solid rgba(0, 217, 255, 0.3)',
     padding: '1rem',
     minWidth: '280px',
+    maxHeight: panelPosition.maxHeight || '450px',
+    overflowY: 'auto',
     boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
     zIndex: 41
   }
@@ -209,6 +268,7 @@ const DetachedNavigation: React.FC = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.div
+          ref={containerRef}
           style={containerStyles}
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
@@ -231,7 +291,11 @@ const DetachedNavigation: React.FC = () => {
                   delay: index * 0.1,
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }}
-                onMouseEnter={() => setExpandedItem(item.id)}
+                onMouseEnter={() => {
+                  setExpandedItem(item.id)
+                  const position = calculatePanelPosition(index)
+                  setPanelPosition(position)
+                }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

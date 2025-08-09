@@ -1,0 +1,46 @@
+{
+  "description": "Trinetra is founded by a team of AI veterans, Person and Person, each bringing extensive experience in artificial intelligence to the forefront of our solutions.",
+  "founders": [
+    {
+      "name": "Vinayak Rana",
+      "role": "Co-Founder & AI Architect",
+      "expertise": ["Machine Learning", "Neural Networks", "AI Strategy"],
+      "bio": "Vinayak brings over 8 years of experience in machine learning and AI architecture. He has led multiple successful AI transformations across various industries.",
+      "image": "/images/vinayak-rana.jpg"
+    },
+    {
+      "name": "Mohammad Zaid Khan",
+      "role": "Co-Founder & Technology Lead", 
+      "expertise": ["Data Science", "Generative AI", "AI Implementation", "MLOps"],
+      "bio": "Zaid is a seasoned technology leader with deep expertise in generative AI and MLOps. He has successfully deployed AI solutions for Fortune 500 companies.",
+      "image": "/images/zaid-khan.jpg"
+    }
+  ],
+  "credentials": [
+    "AI Veterans with 15+ years experience",
+    "Published researchers in AI field",
+    "Enterprise AI deployment specialists"
+  ],
+  "companyValues": [
+    {
+      "title": "Ancient Wisdom Meets Modern AI",
+      "description": "We bridge timeless Vedic principles with cutting-edge AI technology",
+      "icon": "🧠"
+    },
+    {
+      "title": "Ethical AI Development",
+      "description": "Our AI solutions prioritize transparency, fairness, and human values",
+      "icon": "⚖️"
+    },
+    {
+      "title": "Continuous Innovation",
+      "description": "We stay at the forefront of AI research and development",
+      "icon": "🚀"
+    },
+    {
+      "title": "Client-Centric Approach",
+      "description": "Every solution is tailored to meet specific client needs and goals",
+      "icon": "🎯"
+    }
+  ]
+}

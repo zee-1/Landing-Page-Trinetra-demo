@@ -3,24 +3,9 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import DetachedNavigation from '../components/Navigation/DetachedNavigation'
 import FooterNavigation from '../components/Navigation/FooterNavigation'
+import { team } from '../data'
 
 const TeamPage: React.FC = () => {
-  const teamMembers = [
-    {
-      name: "Vinayak Rana",
-      role: "Co-Founder & AI Architect", 
-      expertise: ["Machine Learning", "Neural Networks", "AI Strategy"],
-      image: "🧠",
-      description: "Leading AI research and development with 15+ years of experience in machine learning and neural network architectures."
-    },
-    {
-      name: "Mohammad Zaid Khan",
-      role: "Co-Founder & Technology Lead",
-      expertise: ["Data Science", "Generative AI", "AI Implementation", "MLOps"],
-      image: "🚀",
-      description: "Specializing in AI implementation and MLOps, bringing cutting-edge AI solutions to enterprise environments."
-    }
-  ]
 
   return (
     <div style={{ 
@@ -90,7 +75,7 @@ const TeamPage: React.FC = () => {
           gap: '3rem',
           marginBottom: '6rem'
         }}>
-          {teamMembers.map((member, index) => (
+          {team.founders.map((member, index) => (
             <motion.div
               key={index}
               style={{
@@ -118,7 +103,7 @@ const TeamPage: React.FC = () => {
                 justifyContent: 'center',
                 fontSize: '3rem'
               }}>
-                {member.image}
+                {member.image || (index === 0 ? '🧠' : '🚀')}
               </div>
 
               {/* Info */}
@@ -146,7 +131,7 @@ const TeamPage: React.FC = () => {
                 lineHeight: '1.6',
                 marginBottom: '2rem'
               }}>
-                {member.description}
+                {member.bio}
               </p>
 
               {/* Expertise Tags */}

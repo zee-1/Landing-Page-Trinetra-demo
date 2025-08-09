@@ -8,10 +8,12 @@ import SolutionsSection from './SolutionsSection'
 import BrainNeural3D from '../ThreeD/BrainNeural'
 import SchedulingWidget from '../Scheduling/SchedulingWidget'
 import { useContactForm } from '../../hooks/useContactForm'
-import contentData from '../../data/content.json'
+import { useResponsive } from '../../hooks/useResponsive'
+import { contentData } from '../../data'
 
 const ProfessionalLanding: React.FC = () => {
   const [content, setContent] = useState(contentData)
+  const { isMobile, isTablet, width } = useResponsive()
   
   // Contact form state management
   const {
@@ -514,10 +516,23 @@ const ProfessionalLanding: React.FC = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 style={{ fontSize: '3.5rem', fontWeight: '700', color: '#FAFAF8', marginBottom: '2rem' }}>
+          <h2 style={{ 
+            fontSize: isMobile ? '2.5rem' : isTablet ? '3rem' : '3.5rem', 
+            fontWeight: '700', 
+            color: '#FAFAF8', 
+            marginBottom: '2rem',
+            lineHeight: '1.2'
+          }}>
             <span style={{ color: '#FF6B35' }}>{content.product.hospitality.title}</span>
           </h2>
-          <p style={{ fontSize: '1.3rem', color: 'rgba(250, 250, 248, 0.9)', maxWidth: '800px', margin: '0 auto' }}>
+          <p style={{ 
+            fontSize: isMobile ? '1.1rem' : '1.3rem', 
+            color: 'rgba(250, 250, 248, 0.9)', 
+            maxWidth: '800px', 
+            margin: '0 auto',
+            lineHeight: '1.6',
+            padding: isMobile ? '0 1rem' : '0'
+          }}>
             {content.product.hospitality.description}
           </p>
         </motion.div>
@@ -526,8 +541,8 @@ const ProfessionalLanding: React.FC = () => {
         <div 
           style={{ 
             display: 'grid', 
-            gridTemplateColumns: '1fr 1fr', 
-            gap: '4rem', 
+            gridTemplateColumns: isMobile ? '1fr' : isTablet ? '1fr' : '1fr 1fr', 
+            gap: isMobile ? '2rem' : '4rem', 
             maxWidth: '1400px', 
             margin: '0 auto',
             alignItems: 'start'
@@ -542,9 +557,11 @@ const ProfessionalLanding: React.FC = () => {
               alignItems: 'center',
               position: 'relative',
               height: '100%',
-              minHeight: '600px'
+              minHeight: isMobile ? '300px' : isTablet ? '400px' : '600px',
+              overflow: 'hidden',
+              order: isMobile ? 2 : isTablet ? 2 : 1
             }}
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: isMobile ? 0 : -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
             viewport={{ once: true }}
@@ -554,25 +571,32 @@ const ProfessionalLanding: React.FC = () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              width: '100%',
+              maxWidth: '100%'
             }}>
               <BrainNeural3D 
-                width={600} 
-                height={550}
+                width={Math.min(isMobile ? width - 80 : isTablet ? width - 120 : 600, 600)} 
+                height={isMobile ? 300 : isTablet ? 400 : 550}
                 className="brain-neural-3d"
               />
               
               {/* Neural Network Label */}
               <div style={{
                 textAlign: 'center',
-                marginTop: '2rem'
+                marginTop: isMobile ? '1rem' : '2rem'
               }}>
               </div>
             </div>
           </motion.div>
 
           {/* RIGHT: Customer & Provider Cards Stacked */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '2rem',
+            order: isMobile ? 1 : isTablet ? 1 : 2
+          }}>
             
             {/* Customer Experience Card */}
             <motion.div
@@ -580,8 +604,9 @@ const ProfessionalLanding: React.FC = () => {
                 background: 'linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(0, 217, 255, 0.03))',
                 border: '1px solid rgba(0, 217, 255, 0.2)',
                 borderRadius: '12px',
-                padding: '1.5rem',
-                backdropFilter: 'blur(10px)'
+                padding: isMobile ? '1rem' : '1.5rem',
+                backdropFilter: 'blur(10px)',
+                overflow: 'hidden'
               }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -595,25 +620,37 @@ const ProfessionalLanding: React.FC = () => {
                 marginBottom: '1rem' 
               }}>
                 <div style={{ fontSize: '2rem' }}>👥</div>
-                <h3 style={{ color: '#00D9FF', fontSize: '1.4rem', fontWeight: '600', margin: 0 }}>
+                <h3 style={{ 
+                  color: '#00D9FF', 
+                  fontSize: isMobile ? '1.2rem' : '1.4rem', 
+                  fontWeight: '600', 
+                  margin: 0 
+                }}>
                   For Customers
                 </h3>
               </div>
               
               <div style={{ marginBottom: '1rem' }}>
-                {content.product.hospitality.customer.map((item, idx) => (
+                {content.product.hospitality.customer.features.map((item, idx) => (
                   <div key={idx} style={{ 
                     color: '#FAFAF8', 
-                    fontSize: '0.95rem', 
+                    fontSize: isMobile ? '0.85rem' : '0.95rem', 
                     lineHeight: '1.5',
-                    marginBottom: '0.5rem'
+                    marginBottom: '0.5rem',
+                    wordWrap: 'break-word',
+                    overflowWrap: 'break-word'
                   }}>
                     • {item.feature}: {item.description}
                   </div>
                 ))}
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <div style={{ 
+                display: 'flex', 
+                justifyContent: 'space-between',
+                flexWrap: isMobile ? 'wrap' : 'nowrap',
+                gap: isMobile ? '1rem' : '0'
+              }}>
                 <div style={{ textAlign: 'center' }}>
                   <div style={{ color: '#FF6B35', fontSize: '1.25rem', fontWeight: '700' }}>98%</div>
                   <div style={{ color: 'rgba(250, 250, 248, 0.7)', fontSize: '0.7rem' }}>Satisfaction</div>
@@ -635,8 +672,9 @@ const ProfessionalLanding: React.FC = () => {
                 background: 'linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 107, 53, 0.03))',
                 border: '1px solid rgba(255, 107, 53, 0.2)',
                 borderRadius: '12px',
-                padding: '1.5rem',
-                backdropFilter: 'blur(10px)'
+                padding: isMobile ? '1rem' : '1.5rem',
+                backdropFilter: 'blur(10px)',
+                overflow: 'hidden'
               }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -650,25 +688,37 @@ const ProfessionalLanding: React.FC = () => {
                 marginBottom: '1rem' 
               }}>
                 <div style={{ fontSize: '2rem' }}>🏨</div>
-                <h3 style={{ color: '#FF6B35', fontSize: '1.4rem', fontWeight: '600', margin: 0 }}>
+                <h3 style={{ 
+                  color: '#FF6B35', 
+                  fontSize: isMobile ? '1.2rem' : '1.4rem', 
+                  fontWeight: '600', 
+                  margin: 0 
+                }}>
                   For Providers
                 </h3>
               </div>
               
               <div style={{ marginBottom: '1rem' }}>
-                {content.product.hospitality.provider.map((item, idx) => (
+                {content.product.hospitality.provider.features.map((item, idx) => (
                   <div key={idx} style={{ 
                     color: '#FAFAF8', 
-                    fontSize: '0.95rem', 
+                    fontSize: isMobile ? '0.85rem' : '0.95rem', 
                     lineHeight: '1.5',
-                    marginBottom: '0.5rem'
+                    marginBottom: '0.5rem',
+                    wordWrap: 'break-word',
+                    overflowWrap: 'break-word'
                   }}>
                     • {item.feature}: {item.description}
                   </div>
                 ))}
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <div style={{ 
+                display: 'flex', 
+                justifyContent: 'space-between',
+                flexWrap: isMobile ? 'wrap' : 'nowrap',
+                gap: isMobile ? '1rem' : '0'
+              }}>
                 <div style={{ textAlign: 'center' }}>
                   <div style={{ color: '#00D9FF', fontSize: '1.25rem', fontWeight: '700' }}>75%</div>
                   <div style={{ color: 'rgba(250, 250, 248, 0.7)', fontSize: '0.7rem' }}>Efficiency</div>
