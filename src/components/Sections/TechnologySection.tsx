@@ -194,7 +194,7 @@ const TechnologySection: React.FC = () => {
                     
                     {/* Neural Activity Indicator */}
                     <div className="flex space-x-1">
-                      {capability.neurons.map((neuron, neuronIndex) => (
+                      {capability.neurons.map((_, neuronIndex) => (
                         <motion.div
                           key={neuronIndex}
                           className="w-2 h-2 bg-ethereal-cyan rounded-full"

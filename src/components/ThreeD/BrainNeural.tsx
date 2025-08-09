@@ -172,7 +172,7 @@ const BrainNeural3D: React.FC<BrainNeural3DProps> = ({
         { name: 'Docker', color: 0x2496ED, pos: [0, -3, 2] }
       ]
 
-      techItems.forEach((tech, index) => {
+      techItems.forEach((tech) => {
         // Create star-like node
         const starGeometry = new THREE.ConeGeometry(0.08, 0.2, 5)
         const starMaterial = new THREE.MeshBasicMaterial({ 

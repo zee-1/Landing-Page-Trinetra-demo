@@ -96,7 +96,7 @@ const ParticleSystem: React.FC<ParticleSystemProps> = ({
       return { positions, velocities }
     }
 
-    const { positions, velocities } = createParticles()
+    createParticles()
 
     // Animation variables
     let time = 0

@@ -77,7 +77,7 @@ const ConstellationBackground: React.FC<ConstellationBackgroundProps> = ({
       ctx.clearRect(0, 0, width, height)
 
       // Update and draw stars
-      starsRef.current.forEach((star, index) => {
+      starsRef.current.forEach((star) => {
         // Update position
         star.x += star.vx
         star.y += star.vy
