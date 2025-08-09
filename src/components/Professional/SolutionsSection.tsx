@@ -6,7 +6,7 @@ interface Solution {
   id: string
   name: string
   icon: string
-  status: 'available' | 'coming_soon'
+  status: string
   shortDescription: string
   overview: {
     title: string

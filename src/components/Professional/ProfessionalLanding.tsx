@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import FloatingNavigation from './FloatingNavigation'
 import AccessibilityControls from './AccessibilityControls'
 import SolutionsSection from './SolutionsSection'
-import MandalaNeural3D from '../ThreeD/MandalaNeural'
 import BrainNeural3D from '../ThreeD/BrainNeural'
+import contentData from '../../data/content.json'
+import solutionsData from '../../data/solutions.json'
 
 const ProfessionalLanding: React.FC = () => {
+  const [content, setContent] = useState(contentData)
+  const [solutions, setSolutions] = useState(solutionsData)
+
+  useEffect(() => {
+    // Data is already imported statically, but this allows for future dynamic loading
+    setContent(contentData)
+    setSolutions(solutionsData)
+  }, [])
   const heroStyles: React.CSSProperties = {
     minHeight: '100vh',
     background: 'linear-gradient(135deg, #0f0027 0%, #1a0033 25%, #2d1b69 50%, #1a0033 75%, #0f0027 100%)',
@@ -118,28 +127,6 @@ const ProfessionalLanding: React.FC = () => {
     marginBottom: '4rem'
   }
 
-  const timelineStyles: React.CSSProperties = {
-    maxWidth: '800px',
-    margin: '0 auto',
-    position: 'relative'
-  }
-
-  const timelineItemStyles: React.CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '3rem',
-    position: 'relative'
-  }
-
-  const timelineCardStyles: React.CSSProperties = {
-    background: 'linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 107, 53, 0.1))',
-    border: '1px solid rgba(0, 217, 255, 0.3)',
-    borderRadius: '16px',
-    padding: '2rem',
-    backdropFilter: 'blur(10px)',
-    flex: '1',
-    transition: 'all 0.3s ease'
-  }
 
   return (
     <div>
@@ -314,10 +301,10 @@ const ProfessionalLanding: React.FC = () => {
               Trinetra
             </h1>
             <h2 style={subtitleStyles} className="subtitle-responsive">
-              Your Partner in AI-Powered Transformation
+              {content.hero.tagline}
             </h2>
             <p style={descriptionStyles}>
-              At Trinetra, we specialize in empowering businesses to achieve unparalleled efficiency and innovation through advanced AI. From comprehensive process re-engineering to cutting-edge generative AI assistance, we tailor solutions that drive tangible results.
+              {content.hero.description}
             </p>
             <motion.button
               style={buttonStyles}
@@ -437,10 +424,7 @@ const ProfessionalLanding: React.FC = () => {
           </h3>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '800px', margin: '0 auto' }}>
-            {[
-              { name: "AI Veteran One", role: "Co-Founder & AI Architect", skills: ["Machine Learning", "Neural Networks", "AI Strategy"] },
-              { name: "AI Veteran Two", role: "Co-Founder & Technology Lead", skills: ["Deep Learning", "Computer Vision", "Implementation"] }
-            ].map((founder, index) => (
+            {content.expertise.founders.map((founder, index) => (
               <motion.div
                 key={index}
                 style={{
@@ -480,7 +464,7 @@ const ProfessionalLanding: React.FC = () => {
                   {founder.role}
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'center' }}>
-                  {founder.skills.map((skill, skillIndex) => (
+                  {founder.expertise.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
                       style={{
@@ -519,10 +503,10 @@ const ProfessionalLanding: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 style={{ fontSize: '3.5rem', fontWeight: '700', color: '#FAFAF8', marginBottom: '2rem' }}>
-            <span style={{ color: '#FF6B35' }}>AI Agent</span> for Hospitality Management
+            <span style={{ color: '#FF6B35' }}>{content.product.hospitality.title}</span>
           </h2>
           <p style={{ fontSize: '1.3rem', color: 'rgba(250, 250, 248, 0.9)', maxWidth: '800px', margin: '0 auto' }}>
-            Our flagship AI Agent, meticulously designed to revolutionize the hospitality sector with dual-sided solutions.
+            {content.product.hospitality.description}
           </p>
         </motion.div>
 
@@ -605,21 +589,16 @@ const ProfessionalLanding: React.FC = () => {
               </div>
               
               <div style={{ marginBottom: '1rem' }}>
-                <div style={{ 
-                  color: '#FAFAF8', 
-                  fontSize: '0.95rem', 
-                  lineHeight: '1.5',
-                  marginBottom: '0.5rem'
-                }}>
-                  • End-to-end AI assistance from check-in to checkout
-                </div>
-                <div style={{ 
-                  color: '#FAFAF8', 
-                  fontSize: '0.95rem', 
-                  lineHeight: '1.5'
-                }}>
-                  • Personalized recommendations and proactive service
-                </div>
+                {content.product.hospitality.customer.map((item, idx) => (
+                  <div key={idx} style={{ 
+                    color: '#FAFAF8', 
+                    fontSize: '0.95rem', 
+                    lineHeight: '1.5',
+                    marginBottom: '0.5rem'
+                  }}>
+                    • {item.feature}: {item.description}
+                  </div>
+                ))}
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -665,29 +644,16 @@ const ProfessionalLanding: React.FC = () => {
               </div>
               
               <div style={{ marginBottom: '1rem' }}>
-                <div style={{ 
-                  color: '#FAFAF8', 
-                  fontSize: '0.95rem', 
-                  lineHeight: '1.5',
-                  marginBottom: '0.5rem'
-                }}>
-                  • Smart administration with automated workflows
-                </div>
-                <div style={{ 
-                  color: '#FAFAF8', 
-                  fontSize: '0.95rem', 
-                  lineHeight: '1.5',
-                  marginBottom: '0.5rem'
-                }}>
-                  • Real-time analytics for data-driven decisions
-                </div>
-                <div style={{ 
-                  color: '#FAFAF8', 
-                  fontSize: '0.95rem', 
-                  lineHeight: '1.5'
-                }}>
-                  • Instant alerts for critical events
-                </div>
+                {content.product.hospitality.provider.map((item, idx) => (
+                  <div key={idx} style={{ 
+                    color: '#FAFAF8', 
+                    fontSize: '0.95rem', 
+                    lineHeight: '1.5',
+                    marginBottom: '0.5rem'
+                  }}>
+                    • {item.feature}: {item.description}
+                  </div>
+                ))}
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -723,10 +689,10 @@ const ProfessionalLanding: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 style={{ fontSize: '3.5rem', fontWeight: '700', color: '#FAFAF8', marginBottom: '2rem' }}>
-            Get in Touch
+            {content.contact.title}
           </h2>
           <p style={{ fontSize: '1.3rem', color: 'rgba(250, 250, 248, 0.9)', maxWidth: '600px', margin: '0 auto' }}>
-            Ready to transform your business with AI? Contact us today to discuss how Trinetra can empower your success.
+            {content.contact.subtitle}
           </p>
         </motion.div>
 
@@ -832,10 +798,10 @@ const ProfessionalLanding: React.FC = () => {
             viewport={{ once: true }}
           >
             {[
-              { icon: '📧', title: 'Email', value: 'Person@trinetra.online' },
-              { icon: '📞', title: 'Phone', value: '+91-1234567890' },
-              { icon: '📍', title: 'Location', value: 'Delhi' },
-              { icon: '📅', title: 'Schedule', value: 'Calendar event' }
+              { icon: '📧', title: 'Email', value: content.contact.email },
+              { icon: '📞', title: 'Phone', value: content.contact.phone },
+              { icon: '📍', title: 'Location', value: content.contact.location },
+              { icon: '📅', title: 'Schedule', value: content.contact.calendlyLink }
             ].map((contact, index) => (
               <motion.div
                 key={index}
@@ -984,7 +950,7 @@ const ProfessionalLanding: React.FC = () => {
                 Solutions
               </h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                {['Hotel Management AI', 'Healthcare Solutions', 'Financial Analytics', 'Educational AI'].map((solution, index) => (
+                {solutions.solutions.map((solution, index) => (
                   <li key={index} style={{
                     color: 'rgba(250, 250, 248, 0.8)',
                     fontSize: '0.95rem',
@@ -992,7 +958,18 @@ const ProfessionalLanding: React.FC = () => {
                     cursor: 'pointer',
                     transition: 'color 0.3s ease'
                   }}>
-                    • {solution}
+                    • {solution.name}
+                  </li>
+                ))}
+                {content.solutions.services.map((service, index) => (
+                  <li key={`service-${index}`} style={{
+                    color: 'rgba(250, 250, 248, 0.8)',
+                    fontSize: '0.95rem',
+                    marginBottom: '0.75rem',
+                    cursor: 'pointer',
+                    transition: 'color 0.3s ease'
+                  }}>
+                    • {service.title}
                   </li>
                 ))}
               </ul>
@@ -1014,13 +991,13 @@ const ProfessionalLanding: React.FC = () => {
                 lineHeight: '1.8'
               }}>
                 <div style={{ marginBottom: '0.75rem' }}>
-                  📧 contact@trinetra-ai.com
+                  📧 {content.contact.email}
                 </div>
                 <div style={{ marginBottom: '0.75rem' }}>
                   🌐 www.trinetra-ai.com
                 </div>
                 <div>
-                  📍 AI Innovation Hub
+                  📍 {content.contact.location}
                 </div>
               </div>
             </div>
