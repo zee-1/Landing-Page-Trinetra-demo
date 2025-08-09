@@ -11,6 +11,7 @@ const FloatingNavigation: React.FC = () => {
   const [activeSection, setActiveSection] = useState('hero')
   const [isVisible, setIsVisible] = useState(false)
   const [expandedItem, setExpandedItem] = useState<string | null>(null)
+  const [isNavigationHovered, setIsNavigationHovered] = useState(false)
 
   const navigationItems: NavigationItem[] = [
     { id: 'hero', label: 'Home', icon: '🏠' },
@@ -88,29 +89,27 @@ const FloatingNavigation: React.FC = () => {
     borderRadius: '15px',
     marginBottom: '0.5rem',
     cursor: 'pointer',
-    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
     background: isActive 
       ? 'rgba(0, 217, 255, 0.15)'
       : 'transparent',
     color: isActive ? '#00D9FF' : 'rgba(0, 217, 255, 0.7)',
     border: isActive ? '1px solid rgba(0, 217, 255, 0.3)' : '1px solid transparent',
     position: 'relative',
-    padding: '0 1rem 0 0.5rem',
+    padding: isExpanded ? '0 1.5rem 0 0' : '0',
     minWidth: '3rem',
-    overflow: 'visible'
+    overflow: 'hidden',
+    willChange: 'width, padding'
   })
 
-  const labelStyles = (isExpanded: boolean): React.CSSProperties => ({
-    marginLeft: '0.5rem',
+  const labelStyles: React.CSSProperties = {
+    marginLeft: '0.75rem',
     fontSize: '0.875rem',
     fontWeight: '500',
     whiteSpace: 'nowrap',
-    opacity: isExpanded ? 1 : 0,
-    transform: isExpanded ? 'translateX(0)' : 'translateX(-10px)',
-    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
     position: 'relative',
-    zIndex: 1
-  })
+    zIndex: 1,
+    willChange: 'opacity, transform'
+  }
 
   const scrollToTopStyles: React.CSSProperties = {
     position: 'fixed',
@@ -142,9 +141,22 @@ const FloatingNavigation: React.FC = () => {
           <motion.nav
             style={navStyles}
             initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={{ 
+              opacity: 1, 
+              x: 0,
+              scale: isNavigationHovered ? 1.02 : 1
+            }}
             exit={{ opacity: 0, x: 100 }}
-            transition={{ duration: 0.3 }}
+            transition={{ 
+              duration: 0.3,
+              scale: {
+                type: "spring",
+                damping: 25,
+                stiffness: 400
+              }
+            }}
+            onMouseEnter={() => setIsNavigationHovered(true)}
+            onMouseLeave={() => setIsNavigationHovered(false)}
           >
             {navigationItems.map((item, index) => {
               const isExpanded = expandedItem === item.id
@@ -157,8 +169,29 @@ const FloatingNavigation: React.FC = () => {
                   style={navItemStyles(isActive, isExpanded)}
                   className="nav-item"
                   initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0, width: isExpanded ? 'auto' : '3rem' }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  animate={{ 
+                    opacity: 1, 
+                    x: 0,
+                    width: isExpanded ? 'auto' : '3rem',
+                    paddingRight: isExpanded ? '1.5rem' : '0'
+                  }}
+                  transition={{ 
+                    duration: 0.5,
+                    delay: index * 0.05,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    width: {
+                      type: "spring",
+                      damping: 25,
+                      stiffness: 300,
+                      duration: 0.6
+                    },
+                    paddingRight: {
+                      type: "spring", 
+                      damping: 25,
+                      stiffness: 300,
+                      duration: 0.6
+                    }
+                  }}
                   onMouseEnter={() => {
                     setExpandedItem(item.id)
                   }}
@@ -167,43 +200,66 @@ const FloatingNavigation: React.FC = () => {
                   }}
                 >
                   {/* Icon */}
-                  <div style={{
-                    width: '3rem',
-                    height: '3rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '1.2rem',
-                    flexShrink: 0,
-                    position: 'relative',
-                    zIndex: 1
-                  }}>
+                  <motion.div 
+                    style={{
+                      width: '3rem',
+                      height: '3rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '1.2rem',
+                      flexShrink: 0,
+                      position: 'relative',
+                      zIndex: 1
+                    }}
+                    animate={{
+                      scale: isExpanded ? 0.95 : 1
+                    }}
+                    transition={{
+                      type: "spring",
+                      damping: 20,
+                      stiffness: 400,
+                      duration: 0.4
+                    }}
+                  >
                     {item.icon}
-                  </div>
+                  </motion.div>
                   
                   {/* Label */}
-                  {isExpanded && (
-                    <motion.span
-                      style={labelStyles(isExpanded)}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -10 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {item.label}
-                    </motion.span>
-                  )}
+                  <motion.span
+                    style={labelStyles}
+                    initial={{ opacity: 0, x: -20, scale: 0.8 }}
+                    animate={{ 
+                      opacity: isExpanded ? 1 : 0,
+                      x: isExpanded ? 0 : -20,
+                      scale: isExpanded ? 1 : 0.8
+                    }}
+                    transition={{
+                      type: "spring",
+                      damping: 20,
+                      stiffness: 400,
+                      duration: 0.5,
+                      delay: isExpanded ? 0.1 : 0
+                    }}
+                  >
+                    {item.label}
+                  </motion.span>
                 </motion.button>
               )
             })}
 
             <style>{`
+              .nav-item {
+                transition: box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                           transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+              }
               .nav-item:hover {
-                box-shadow: 0 4px 15px rgba(0, 217, 255, 0.2);
-                transform: translateY(-1px);
+                box-shadow: 0 6px 20px rgba(0, 217, 255, 0.15);
+                transform: translateY(-1px) scale(1.02);
               }
               .nav-item:active {
-                transform: translateY(0);
+                transform: translateY(0) scale(0.98);
+                transition: transform 0.1s ease-out !important;
               }
             `}</style>
           </motion.nav>
