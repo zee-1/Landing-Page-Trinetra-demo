@@ -67,7 +67,7 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 1.2, ease: 'easeOut', delay: 0.3 }}
           >
             <Heading level={1} className="mb-6 bg-gradient-to-r from-off-white via-ethereal-cyan to-sacred-saffron bg-clip-text text-transparent">
-              Trinetra
+              TrinetraAI
             </Heading>
           </motion.div>
 

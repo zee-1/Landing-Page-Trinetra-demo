@@ -114,10 +114,12 @@
   "contact": {
     "title": "Get in Touch",
     "subtitle": "Ready to transform your business with AI? Contact us today to discuss how Trinetra can empower your success.",
-    "email": "Person@trinetra.online",
-    "phone": "+91-99999999",
-    "location": "Delhi",
-    "calendlyLink": "Calendar event",
+    "email": "contact@trinetra-ai.com",
+    "phone": "+91-1234567890",
+    "location": "Delhi, India",
+    "calendlyLink": "https://calendly.com/trinetra-ai/consultation",
+    "acuityLink": "https://trinetra-ai.acuityscheduling.com",
+    "calComLink": "https://cal.com/trinetra-ai/meeting",
     "brochure": "File"
   }
 }

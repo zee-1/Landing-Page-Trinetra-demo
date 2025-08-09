@@ -4,12 +4,24 @@ import FloatingNavigation from './FloatingNavigation'
 import AccessibilityControls from './AccessibilityControls'
 import SolutionsSection from './SolutionsSection'
 import BrainNeural3D from '../ThreeD/BrainNeural'
+import SchedulingWidget from '../Scheduling/SchedulingWidget'
+import { useContactForm } from '../../hooks/useContactForm'
 import contentData from '../../data/content.json'
 import solutionsData from '../../data/solutions.json'
 
 const ProfessionalLanding: React.FC = () => {
   const [content, setContent] = useState(contentData)
   const [solutions, setSolutions] = useState(solutionsData)
+  
+  // Contact form state management
+  const {
+    formState,
+    errors,
+    isSubmitting,
+    submitResult,
+    handleInputChange,
+    handleSubmit
+  } = useContactForm()
 
   useEffect(() => {
     // Data is already imported statically, but this allows for future dynamic loading
@@ -298,7 +310,7 @@ const ProfessionalLanding: React.FC = () => {
             transition={{ duration: 1 }}
           >
             <h1 style={titleStyles} className="title-responsive">
-              Trinetra
+              TrinetraAI
             </h1>
             <h2 style={subtitleStyles} className="subtitle-responsive">
               {content.hero.tagline}
@@ -715,38 +727,103 @@ const ProfessionalLanding: React.FC = () => {
               Send us a Message
             </h3>
             
-            <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              {['Name', 'Email', 'Company'].map((field) => (
-                <div key={field}>
-                  <label style={{ color: '#FAFAF8', fontSize: '1rem', marginBottom: '0.5rem', display: 'block' }}>
-                    {field} *
-                  </label>
-                  <input
-                    type={field === 'Email' ? 'email' : 'text'}
-                    style={{
-                      width: '100%',
-                      padding: '1rem',
-                      background: 'rgba(26, 0, 51, 0.5)',
-                      border: '1px solid rgba(0, 217, 255, 0.2)',
-                      borderRadius: '12px',
-                      color: '#FAFAF8',
-                      fontSize: '1rem',
-                      outline: 'none',
-                      transition: 'all 0.3s ease'
-                    }}
-                    placeholder={`Your ${field.toLowerCase()}`}
-                    onFocus={(e) => e.target.style.borderColor = 'rgba(255, 107, 53, 0.5)'}
-                    onBlur={(e) => e.target.style.borderColor = 'rgba(0, 217, 255, 0.2)'}
-                  />
-                </div>
-              ))}
-              
+            {/* Success/Error Message */}
+            {submitResult && (
+              <motion.div
+                style={{
+                  padding: '1rem',
+                  borderRadius: '8px',
+                  marginBottom: '1rem',
+                  background: submitResult.success 
+                    ? 'linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1))'
+                    : 'linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1))',
+                  border: `1px solid ${submitResult.success ? 'rgba(34, 197, 94, 0.3)' : 'rgba(239, 68, 68, 0.3)'}`
+                }}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <p style={{
+                  color: submitResult.success ? '#22c55e' : '#ef4444',
+                  margin: 0,
+                  fontSize: '0.95rem'
+                }}>
+                  {submitResult.message}
+                </p>
+              </motion.div>
+            )}
+
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              {/* Name Field */}
               <div>
                 <label style={{ color: '#FAFAF8', fontSize: '1rem', marginBottom: '0.5rem', display: 'block' }}>
-                  Message *
+                  Name *
                 </label>
-                <textarea
-                  rows={4}
+                <input
+                  type="text"
+                  value={formState.name}
+                  onChange={(e) => handleInputChange('name', e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '1rem',
+                    background: 'rgba(26, 0, 51, 0.5)',
+                    border: `1px solid ${errors.name ? 'rgba(239, 68, 68, 0.5)' : 'rgba(0, 217, 255, 0.2)'}`,
+                    borderRadius: '12px',
+                    color: '#FAFAF8',
+                    fontSize: '1rem',
+                    outline: 'none',
+                    transition: 'all 0.3s ease'
+                  }}
+                  placeholder="Your name"
+                  onFocus={(e) => e.target.style.borderColor = 'rgba(255, 107, 53, 0.5)'}
+                  onBlur={(e) => e.target.style.borderColor = errors.name ? 'rgba(239, 68, 68, 0.5)' : 'rgba(0, 217, 255, 0.2)'}
+                />
+                {errors.name && (
+                  <p style={{ color: '#ef4444', fontSize: '0.85rem', marginTop: '0.5rem', marginBottom: 0 }}>
+                    {errors.name}
+                  </p>
+                )}
+              </div>
+
+              {/* Email Field */}
+              <div>
+                <label style={{ color: '#FAFAF8', fontSize: '1rem', marginBottom: '0.5rem', display: 'block' }}>
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  value={formState.email}
+                  onChange={(e) => handleInputChange('email', e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '1rem',
+                    background: 'rgba(26, 0, 51, 0.5)',
+                    border: `1px solid ${errors.email ? 'rgba(239, 68, 68, 0.5)' : 'rgba(0, 217, 255, 0.2)'}`,
+                    borderRadius: '12px',
+                    color: '#FAFAF8',
+                    fontSize: '1rem',
+                    outline: 'none',
+                    transition: 'all 0.3s ease'
+                  }}
+                  placeholder="your.email@company.com"
+                  onFocus={(e) => e.target.style.borderColor = 'rgba(255, 107, 53, 0.5)'}
+                  onBlur={(e) => e.target.style.borderColor = errors.email ? 'rgba(239, 68, 68, 0.5)' : 'rgba(0, 217, 255, 0.2)'}
+                />
+                {errors.email && (
+                  <p style={{ color: '#ef4444', fontSize: '0.85rem', marginTop: '0.5rem', marginBottom: 0 }}>
+                    {errors.email}
+                  </p>
+                )}
+              </div>
+
+              {/* Company Field */}
+              <div>
+                <label style={{ color: '#FAFAF8', fontSize: '1rem', marginBottom: '0.5rem', display: 'block' }}>
+                  Company
+                </label>
+                <input
+                  type="text"
+                  value={formState.company}
+                  onChange={(e) => handleInputChange('company', e.target.value)}
                   style={{
                     width: '100%',
                     padding: '1rem',
@@ -756,35 +833,96 @@ const ProfessionalLanding: React.FC = () => {
                     color: '#FAFAF8',
                     fontSize: '1rem',
                     outline: 'none',
-                    resize: 'none',
                     transition: 'all 0.3s ease'
                   }}
-                  placeholder="Tell us about your AI transformation needs..."
+                  placeholder="Your company (optional)"
+                  onFocus={(e) => e.target.style.borderColor = 'rgba(255, 107, 53, 0.5)'}
+                  onBlur={(e) => e.target.style.borderColor = 'rgba(0, 217, 255, 0.2)'}
+                />
+              </div>
+
+              {/* Subject Field */}
+              <div>
+                <label style={{ color: '#FAFAF8', fontSize: '1rem', marginBottom: '0.5rem', display: 'block' }}>
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  value={formState.subject}
+                  onChange={(e) => handleInputChange('subject', e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '1rem',
+                    background: 'rgba(26, 0, 51, 0.5)',
+                    border: '1px solid rgba(0, 217, 255, 0.2)',
+                    borderRadius: '12px',
+                    color: '#FAFAF8',
+                    fontSize: '1rem',
+                    outline: 'none',
+                    transition: 'all 0.3s ease'
+                  }}
+                  placeholder="What is this regarding? (optional)"
                   onFocus={(e) => e.target.style.borderColor = 'rgba(255, 107, 53, 0.5)'}
                   onBlur={(e) => e.target.style.borderColor = 'rgba(0, 217, 255, 0.2)'}
                 />
               </div>
               
+              {/* Message Field */}
+              <div>
+                <label style={{ color: '#FAFAF8', fontSize: '1rem', marginBottom: '0.5rem', display: 'block' }}>
+                  Message *
+                </label>
+                <textarea
+                  rows={4}
+                  value={formState.message}
+                  onChange={(e) => handleInputChange('message', e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '1rem',
+                    background: 'rgba(26, 0, 51, 0.5)',
+                    border: `1px solid ${errors.message ? 'rgba(239, 68, 68, 0.5)' : 'rgba(0, 217, 255, 0.2)'}`,
+                    borderRadius: '12px',
+                    color: '#FAFAF8',
+                    fontSize: '1rem',
+                    outline: 'none',
+                    resize: 'none',
+                    transition: 'all 0.3s ease'
+                  }}
+                  placeholder="Tell us about your AI transformation needs..."
+                  onFocus={(e) => e.target.style.borderColor = 'rgba(255, 107, 53, 0.5)'}
+                  onBlur={(e) => e.target.style.borderColor = errors.message ? 'rgba(239, 68, 68, 0.5)' : 'rgba(0, 217, 255, 0.2)'}
+                />
+                {errors.message && (
+                  <p style={{ color: '#ef4444', fontSize: '0.85rem', marginTop: '0.5rem', marginBottom: 0 }}>
+                    {errors.message}
+                  </p>
+                )}
+              </div>
+              
+              {/* Submit Button */}
               <motion.button
                 type="submit"
+                disabled={isSubmitting}
                 style={{
                   width: '100%',
                   padding: '1rem 2rem',
-                  background: 'linear-gradient(45deg, #FF6B35, #00D9FF)',
+                  background: isSubmitting 
+                    ? 'rgba(0, 217, 255, 0.3)' 
+                    : 'linear-gradient(45deg, #FF6B35, #00D9FF)',
                   border: 'none',
                   borderRadius: '12px',
-                  color: '#1a0033',
+                  color: isSubmitting ? 'rgba(26, 0, 51, 0.7)' : '#1a0033',
                   fontSize: '1.1rem',
                   fontWeight: '700',
-                  cursor: 'pointer',
+                  cursor: isSubmitting ? 'not-allowed' : 'pointer',
                   transition: 'all 0.3s ease',
                   textTransform: 'uppercase',
                   letterSpacing: '1px'
                 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                whileTap={!isSubmitting ? { scale: 0.98 } : {}}
               >
-                Send Message
+                {isSubmitting ? '📤 Sending...' : '📨 Send Message'}
               </motion.button>
             </form>
           </motion.div>
@@ -856,24 +994,11 @@ const ProfessionalLanding: React.FC = () => {
               <p style={{ color: 'rgba(250, 250, 248, 0.9)', fontSize: '1.1rem', marginBottom: '1.5rem' }}>
                 Join the AI revolution with Trinetra's cutting-edge solutions.
               </p>
-              <motion.button
-                style={{
-                  padding: '1rem 2rem',
-                  background: 'linear-gradient(45deg, #00D9FF, #FF6B35)',
-                  border: 'none',
-                  borderRadius: '12px',
-                  color: '#1a0033',
-                  fontSize: '1rem',
-                  fontWeight: '700',
-                  cursor: 'pointer',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px'
-                }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Schedule Consultation
-              </motion.button>
+              <SchedulingWidget 
+                calendlyUrl={content.contact.calendlyLink}
+                acuityUrl={content.contact.acuityLink}
+                calComUrl={content.contact.calComLink}
+              />
             </motion.div>
           </motion.div>
         </div>

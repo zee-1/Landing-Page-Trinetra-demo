@@ -197,7 +197,7 @@ const ImprovedHeroSection: React.FC = () => {
                 backgroundClip: 'text'
               }}
             >
-              Trinetra
+              TrinetraAI
             </h1>
           </motion.div>
 
