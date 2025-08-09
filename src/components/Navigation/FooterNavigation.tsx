@@ -104,14 +104,13 @@ const FooterNavigation: React.FC = () => {
             <div style={{
               width: '40px',
               height: '40px',
-              background: 'linear-gradient(45deg, #00D9FF, #FF6B35)',
               borderRadius: '50%',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '1.2rem'
             }}>
-              🧠
+              ॠ
             </div>
             <div>
               <div style={{

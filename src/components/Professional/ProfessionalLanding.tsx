@@ -9,11 +9,9 @@ import BrainNeural3D from '../ThreeD/BrainNeural'
 import SchedulingWidget from '../Scheduling/SchedulingWidget'
 import { useContactForm } from '../../hooks/useContactForm'
 import contentData from '../../data/content.json'
-import solutionsData from '../../data/solutions.json'
 
 const ProfessionalLanding: React.FC = () => {
   const [content, setContent] = useState(contentData)
-  const [solutions, setSolutions] = useState(solutionsData)
   
   // Contact form state management
   const {
@@ -28,7 +26,6 @@ const ProfessionalLanding: React.FC = () => {
   useEffect(() => {
     // Data is already imported statically, but this allows for future dynamic loading
     setContent(contentData)
-    setSolutions(solutionsData)
   }, [])
   const heroStyles: React.CSSProperties = {
     minHeight: '100vh',
@@ -1007,159 +1004,6 @@ const ProfessionalLanding: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer style={{
-        background: 'linear-gradient(180deg, #0f0027 0%, #1a0033 50%, #0f0027 100%)',
-        padding: '4rem 2rem 2rem',
-        borderTop: '1px solid rgba(0, 217, 255, 0.2)'
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          {/* Footer Content */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '3rem',
-            marginBottom: '3rem'
-          }}>
-            {/* Company Info */}
-            <div>
-              <div style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '1rem', 
-                marginBottom: '1.5rem' 
-              }}>
-                <div style={{ fontSize: '2rem', color: '#00D9FF' }}>ॠ</div>
-                <h3 style={{ 
-                  color: '#FAFAF8', 
-                  fontSize: '1.5rem', 
-                  fontWeight: '600', 
-                  margin: 0 
-                }}>
-                  Trinetra AI Solutions
-                </h3>
-              </div>
-              <p style={{
-                color: 'rgba(250, 250, 248, 0.8)',
-                fontSize: '1rem',
-                lineHeight: '1.6',
-                marginBottom: '1.5rem'
-              }}>
-                Bridging ancient wisdom with quantum computing to transform businesses through AI-powered solutions.
-              </p>
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                {['🔗', '📧', '📱'].map((icon, index) => (
-                  <div key={index} style={{
-                    width: '40px',
-                    height: '40px',
-                    background: 'linear-gradient(45deg, #FF6B35, #00D9FF)',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '1.2rem',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease'
-                  }}>
-                    {icon}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Solutions */}
-            <div>
-              <h4 style={{
-                color: '#FF6B35',
-                fontSize: '1.2rem',
-                fontWeight: '600',
-                marginBottom: '1.5rem'
-              }}>
-                Solutions
-              </h4>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                {solutions.solutions.map((solution, index) => (
-                  <li key={index} style={{
-                    color: 'rgba(250, 250, 248, 0.8)',
-                    fontSize: '0.95rem',
-                    marginBottom: '0.75rem',
-                    cursor: 'pointer',
-                    transition: 'color 0.3s ease'
-                  }}>
-                    • {solution.name}
-                  </li>
-                ))}
-                {content.solutions.services.map((service, index) => (
-                  <li key={`service-${index}`} style={{
-                    color: 'rgba(250, 250, 248, 0.8)',
-                    fontSize: '0.95rem',
-                    marginBottom: '0.75rem',
-                    cursor: 'pointer',
-                    transition: 'color 0.3s ease'
-                  }}>
-                    • {service.title}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact Info */}
-            <div>
-              <h4 style={{
-                color: '#FF6B35',
-                fontSize: '1.2rem',
-                fontWeight: '600',
-                marginBottom: '1.5rem'
-              }}>
-                Contact
-              </h4>
-              <div style={{
-                color: 'rgba(250, 250, 248, 0.8)',
-                fontSize: '0.95rem',
-                lineHeight: '1.8'
-              }}>
-                <div style={{ marginBottom: '0.75rem' }}>
-                  📧 {content.contact.email}
-                </div>
-                <div style={{ marginBottom: '0.75rem' }}>
-                  🌐 www.trinetra-ai.com
-                </div>
-                <div>
-                  📍 {content.contact.location}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer Bottom */}
-          <div style={{
-            borderTop: '1px solid rgba(0, 217, 255, 0.1)',
-            paddingTop: '2rem',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '1rem'
-          }}>
-            <div style={{
-              color: 'rgba(250, 250, 248, 0.7)',
-              fontSize: '0.9rem'
-            }}>
-              © 2024 Trinetra AI Solutions. Where Process Meets AI.
-            </div>
-            <div style={{
-              display: 'flex',
-              gap: '2rem',
-              fontSize: '0.9rem'
-            }}>
-              <span style={{ color: 'rgba(250, 250, 248, 0.7)', cursor: 'pointer' }}>Privacy</span>
-              <span style={{ color: 'rgba(250, 250, 248, 0.7)', cursor: 'pointer' }}>Terms</span>
-              <span style={{ color: 'rgba(250, 250, 248, 0.7)', cursor: 'pointer' }}>Cookies</span>
-            </div>
-          </div>
-        </div>
-      </footer>
-
       {/* Floating Sanskrit and Mathematical Symbols */}
       <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 1 }}>
         {/* Sanskrit Symbols */}
@@ -1393,6 +1237,9 @@ const ProfessionalLanding: React.FC = () => {
           ∫
         </motion.div>
       </div>
+      
+      {/* Footer Navigation */}
+      <FooterNavigation />
     </div>
   )
 }
